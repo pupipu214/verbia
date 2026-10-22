@@ -139,7 +139,9 @@ async function handleGoogleCredential(response) {
     });
     const payload = await result.json();
     if (!result.ok) throw new Error(payload.detail || 'No se pudo verificar tu cuenta.');
-    greeting.textContent = '¡Qué alegría verte, ' + payload.nombre + '! Vamos a hacer que tu voz brille.';
+    if (greeting) {
+      greeting.textContent = '¡Qué alegría verte, ' + payload.nombre + '! Vamos a hacer que tu voz brille.';
+    }
     window.location.replace(nextPath);
   } catch (error) {
     showStatus(error instanceof Error ? error.message : 'No se pudo verificar tu cuenta. Inténtalo de nuevo.', true);
@@ -164,7 +166,9 @@ async function showCurrentAccount() {
     signedInName.textContent = user.nombre;
     authTitle.textContent = 'Qué bueno verte.';
     authDescription.textContent = 'Tu cuenta está lista para continuar practicando.';
-    greeting.textContent = '¡Hola de nuevo, ' + user.nombre + '! Te estaba esperando.';
+    if (greeting) {
+      greeting.textContent = '¡Hola de nuevo, ' + user.nombre + '! Te estaba esperando.';
+    }
   } catch {
     showStatus('No se pudo consultar tu sesión. Puedes volver a iniciar sesión con Google.', true);
   }
