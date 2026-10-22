@@ -1,0 +1,289 @@
+.profile-main {
+  min-height: calc(100svh - 130px);
+  padding: clamp(44px, 8vw, 96px) max(5vw, 24px);
+  background:
+    radial-gradient(ellipse at 85% 10%, rgb(169 216 240 / 24%), transparent 29rem),
+    radial-gradient(ellipse at 10% 75%, rgb(245 139 101 / 12%), transparent 28rem),
+    var(--paper);
+}
+
+.profile-hero,
+.profile-content {
+  width: min(1060px, 100%);
+  margin-inline: auto;
+}
+
+.profile-hero .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .13em;
+}
+
+.profile-hero h1 {
+  margin: 18px 0 10px;
+  font: 800 clamp(40px, 6vw, 68px)/1.02 var(--font-display);
+  letter-spacing: -.05em;
+}
+
+.profile-hero h1 em {
+  color: var(--coral);
+  font-style: normal;
+}
+
+.profile-hero > p:last-child {
+  max-width: 540px;
+  color: color-mix(in oklch, var(--ink) 72%, transparent);
+  font-size: 16px;
+}
+
+.profile-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(210px, .34fr);
+  align-items: start;
+  gap: 24px;
+  margin-top: clamp(30px, 5vw, 56px);
+}
+
+.profile-card {
+  min-width: 0;
+  padding: clamp(22px, 4vw, 38px);
+  border: 1px solid color-mix(in oklch, var(--ink) 20%, transparent);
+  border-radius: 26px;
+  background: var(--paper);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.profile-card-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.profile-card-heading .eyebrow {
+  margin-bottom: 5px;
+  color: var(--coral);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .14em;
+}
+
+.profile-card-heading h2 {
+  font: 800 34px/1.1 var(--font-display);
+  letter-spacing: -.04em;
+}
+
+.profile-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: color-mix(in oklch, var(--mint) 55%, var(--paper));
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.profile-badge span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #458260;
+}
+
+.profile-identity {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  align-items: center;
+  gap: 26px;
+  margin-top: 30px;
+}
+
+.profile-avatar {
+  width: 112px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 3px solid var(--ink);
+  border-radius: 50%;
+  color: var(--ink);
+  background: var(--lime);
+  box-shadow: 4px 4px 0 var(--coral);
+  font: 800 38px/1 var(--font-display);
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-avatar img[hidden] { display: none; }
+
+.profile-fields {
+  display: grid;
+  gap: 17px;
+  min-width: 0;
+}
+
+.profile-field {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.profile-field span {
+  color: color-mix(in oklch, var(--ink) 62%, transparent);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.profile-field strong {
+  overflow-wrap: anywhere;
+  font-size: 15px;
+}
+
+.profile-status {
+  min-height: 20px;
+  margin-top: 22px;
+  color: #a93227;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.profile-actions .btn {
+  min-height: 46px;
+  height: auto;
+  white-space: normal;
+  text-align: center;
+}
+
+.profile-side {
+  display: grid;
+  gap: 16px;
+}
+
+.profile-note {
+  display: grid;
+  gap: 15px;
+  padding: 21px;
+  border-radius: 20px;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.profile-note-icon {
+  color: var(--coral);
+  font-size: 25px;
+}
+
+.profile-note p {
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.profile-note strong { display: block; margin-bottom: 4px; }
+
+.profile-logout {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 0 15px;
+  border: 1px solid color-mix(in oklch, var(--ink) 28%, transparent);
+  border-radius: 14px;
+  color: var(--ink);
+  background: transparent;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.profile-logout:hover { background: color-mix(in oklch, var(--coral) 15%, transparent); }
+.profile-logout:disabled { cursor: wait; opacity: .65; }
+.profile-logout svg { width: 19px; height: 19px; flex: 0 0 19px; }
+
+.profile-logout:focus-visible,
+.profile-actions a:focus-visible {
+  outline: 3px solid #79b8d9;
+  outline-offset: 3px;
+}
+
+:root[data-theme="dark"] .profile-card {
+  border-color: rgb(226 232 240 / 18%);
+  background: #202c40;
+}
+
+:root[data-theme="dark"] .profile-badge {
+  color: #d8f3df;
+  background: #294b3b;
+}
+
+:root[data-theme="dark"] .profile-avatar {
+  border-color: #f1f5f9;
+  color: #172033;
+}
+
+:root[data-theme="dark"] .profile-note { background: #0b1120; }
+:root[data-theme="dark"] .profile-logout { border-color: rgb(226 232 240 / 24%); }
+
+@media (max-width: 760px) {
+  .profile-main { min-height: calc(100svh - 110px); }
+  .profile-content { grid-template-columns: 1fr; }
+  .profile-side { grid-template-columns: minmax(0, 1fr) minmax(180px, .7fr); align-items: stretch; }
+}
+
+@media (max-width: 520px) {
+  .profile-main { padding-inline: 20px; }
+  .profile-card { border-radius: 20px; box-shadow: 5px 5px 0 var(--ink); }
+  .profile-card-heading { align-items: flex-start; flex-direction: column; }
+  .profile-identity { grid-template-columns: 1fr; gap: 22px; justify-items: start; }
+  .profile-avatar { width: 88px; }
+  .profile-side { grid-template-columns: 1fr; }
+  .profile-actions { display: grid; }
+  .profile-actions .btn { width: 100%; }
+}
+
+/* ============================================================
+   Touch y movimiento (movil / tableta / PC)
+   Esta hoja no tenia bloque de prefers-reduced-motion.
+   ============================================================ */
+
+/* Hover solo con puntero real */
+@media (hover: hover) and (pointer: fine) {
+  .profile-logout:hover { will-change: transform; }
+}
+
+/* Feedback tactil, sin estado pegajoso */
+@media (hover: none) {
+  .profile-logout:active { transform: scale(.98); }
+  .profile-actions .btn:active { transform: scale(.98); }
+}
+
+/* Objetivos tactiles de 44px */
+@media (hover: none), (max-width: 760px) {
+  .profile-logout,
+  .profile-actions .btn { min-height: var(--touch-target, 44px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-main *,
+  .profile-main *::before,
+  .profile-main *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}

@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+python-multipart
+groq
+python-dotenv
+piper-tts
+sqlalchemy
+psycopg[binary]
+fish-audio-sdk==1.3.0
+itsdangerous
+google-auth
+requests

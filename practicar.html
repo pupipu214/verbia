@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Prepara y practica una conversación con los personajes de VerbIA." />
+  <title>Practicar — VerbIA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Figtree:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/verbia.css" />
+  <link rel="stylesheet" href="css/practicar.css?v=20261020-3" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <script src="js/navigation.js" defer></script>
+  <script src="js/practicar.js?v=20261021-1" defer></script>
+  <script src="js/theme.js" defer></script>
+</head>
+<body class="practice-page">
+  <div class="site-shell">
+    <input class="nav-toggle" id="practice-nav-toggle" type="checkbox" aria-controls="practice-navigation" aria-expanded="false" aria-label="Abrir menú" />
+    <header class="practice-header">
+      <a class="wordmark" href="index.html#inicio" aria-label="Verbai, ir al inicio">
+        <img class="brand-logo" src="static/img/verbai-logo-final.svg" alt="Verbai" />
+      </a>
+      <nav class="practice-nav" id="practice-navigation" aria-label="Navegación">
+        <a href="personajes.html">Galería</a>
+        <a href="constructor.html">Constructor</a>
+        <span aria-current="page">Practicar</span>
+        <a href="simulacion.html">Simulación</a>
+        <a href="analisis.html">Análisis</a>
+        <a href="perfil.html">Mi perfil</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" title="Activar modo oscuro">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.5 8.5 0 1 0 20.5 14.2Z" /></svg>
+      </button>
+      <label class="icon-button practice-menu-button" for="practice-nav-toggle" aria-label="Abrir o cerrar el menú">
+        <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16" /><path d="M4 12h16" /><path d="M4 18h16" /></svg>
+        <svg class="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+      </label>
+      <a class="practice-exit" href="personajes.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6" /><path d="M9 12h12" /></svg>
+        Salir de la práctica
+      </a>
+    </header>
+
+    <main class="practice-layout" id="main-content">
+      <aside class="practice-sidebar" aria-label="Detalles de la práctica">
+        <div class="practice-heading">
+          <span class="practice-kicker"><span class="practice-kicker-dot"></span> PREPARA TU VOZ</span>
+          <h1>Tu próxima<br /><em>conversación.</em></h1>
+          <p>Elige con quién practicar y ten presente tu objetivo. No hace falta hacerlo perfecto: solo empezar.</p>
+        </div>
+
+        <span class="character-picker-label">PERSONAJE</span>
+        <div class="character-picker-card">
+          <span class="picker-avatar"><img id="picker-image" src="Imagenes/Luis.jpg" alt="" /></span>
+          <span class="picker-copy">
+            <strong id="picker-name">Luis</strong>
+            <small id="picker-role">Alumno de informática</small>
+          </span>
+          <span class="picker-check" aria-hidden="true">✓</span>
+          <select class="visually-hidden" id="character-picker" aria-label="Elige un personaje">
+            <option value="luis" selected>Luis</option>
+            <option value="nova">Dra. Nova</option>
+            <option value="leonardo">Leonardo Ríos</option>
+            <option value="marcos">Marcos Díaz</option>
+            <option value="lucia">Lucía Ferrer</option>
+            <option value="andres">Andrés Vega</option>
+          </select>
+        </div>
+        <div class="character-choices" id="character-choices" role="group" aria-label="Elige un personaje"></div>
+
+        <section class="practice-info-card practice-description" aria-labelledby="description-title">
+          <h2 id="description-title">EL ESCENARIO</h2>
+          <p id="character-description">Explora programación y fundamentos de computación mediante retos y ejemplos cotidianos.</p>
+        </section>
+
+        <section class="practice-info-card practice-rubric" aria-labelledby="rubric-title">
+          <h2 id="rubric-title">EN QUÉ ENFOCARTE</h2>
+          <ul id="rubric-list"></ul>
+        </section>
+
+        <p class="practice-privacy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2" /><path d="M8 10V7a4 4 0 0 1 8 0v3" /></svg>
+          El audio se envía a transcripción al terminar de grabar; no se conserva el archivo.
+        </p>
+      </aside>
+
+      <section class="practice-workspace" aria-label="Sala de práctica">
+        <div class="practice-scene" id="practice-scene" data-state="ready">
+          <div class="scene-glow" aria-hidden="true"></div>
+          <div class="scene-topline">
+            <span class="scene-badge"><span></span><span id="scene-status">Sala lista</span></span>
+            <span class="scene-session-label">PRÁCTICA DE VOZ <span aria-hidden="true">✳</span></span>
+          </div>
+
+          <div class="scene-character">
+            <div class="scene-portrait">
+              <img id="scene-image" src="Imagenes/Luis.jpg" alt="Luis" />
+              <span class="portrait-live" aria-label="Personaje seleccionado"></span>
+            </div>
+            <div class="scene-character-label">
+              <strong id="scene-name">Luis</strong>
+              <span id="scene-role">Alumno de informática</span>
+            </div>
+          </div>
+
+          <div class="scene-center">
+            <div class="sound-wave" id="sound-wave" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <p class="scene-prompt" id="scene-prompt">Tu espacio está listo.<br /><strong>Cuando quieras, empezamos.</strong></p>
+            <div class="conversation-log" id="conversation-log" role="log" aria-live="polite" aria-relevant="additions">
+            </div>
+
+            <p class="scene-hint" id="scene-hint">Respira profundo y habla con naturalidad.</p>
+          </div>
+
+          <div class="scene-bottom">
+            <span class="scene-pill timer-pill" aria-label="Tiempo de práctica">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8" /><path d="M12 9v4l2.5 1.5M9 2h6" /></svg>
+              <span id="practice-timer">00:00</span>
+            </span>
+            <span class="scene-pill language-pill"><span aria-hidden="true">ES</span> Español</span>
+            <span class="scene-pill mic-pill" id="mic-indicator" aria-live="polite">
+              <span class="mic-indicator-dot"></span><span id="mic-status">Micrófono apagado</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="practice-controls" aria-label="Controles de práctica">
+          <button class="round-control" id="tips-button" type="button" aria-label="Ver consejo para practicar" title="Ver un consejo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M9.8 9a2.3 2.3 0 1 1 3.9 1.6c-1 .9-1.7 1.2-1.7 2.9M12 17h.01" /></svg>
+          </button>
+          <button class="round-control" id="share-button" type="button" aria-label="Copiar enlace de esta práctica" title="Copiar enlace">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4m0 0L7 9m5-5 5 5" /><path d="M5 13v6h14v-6" /></svg>
+          </button>
+          <button class="start-button" id="start-button" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 10 6-10 6z" /></svg>
+            <span>Comenzar práctica</span>
+          </button>
+        </div>
+
+        <div class="practice-transport" aria-label="Control de la sesión">
+          <button class="transport-button pause-button" id="pause-button" type="button" disabled aria-label="Pausar práctica" title="Pausar práctica">
+            <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5h4v14H7zM15 5h4v14h-4z" /></svg>
+            <svg class="resume-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m8 5 12 7-12 7z" /></svg>
+          </button>
+          <button class="transport-button finish-button" id="finish-button" type="button" disabled aria-label="Finalizar práctica" title="Finalizar práctica">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2" /></svg>
+          </button>
+          <button class="transport-button microphone-button" id="microphone-button" type="button" aria-label="Grabar y enviar voz" title="Grabar y enviar voz" disabled>
+            <svg class="mic-on-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3" /><path d="M5 10a7 7 0 0 0 14 0M12 17v5m-4 0h8" /></svg>
+            <svg class="mic-off-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 3 18 18M9 9v3a3 3 0 0 0 5.1 2.1M15 9V5a3 3 0 0 0-5.8-1M5 10a7 7 0 0 0 12 4.9M19 10a7 7 0 0 1-1 3.5M12 17v5m-4 0h8" /></svg>
+          </button>
+        </div>
+        <p class="practice-feedback" id="practice-feedback" role="status" aria-live="polite">Tu práctica no se graba ni se envía desde esta página.</p>
+      </section>
+    </main>
+  </div>
+  <div class="toast-stack" id="toast-stack" aria-live="polite" aria-atomic="false"></div>
+</body>
+</html>

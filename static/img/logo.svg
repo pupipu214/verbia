@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="520" viewBox="0 0 1600 520" role="img" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">Logo Verbia</title>
+  <desc id="logoDesc">Logotipo de Verbia basado en la referencia enviada.</desc>
+  <rect width="1600" height="520" fill="#f2f2f2"/>
+
+  <g font-family="Arial Black, Impact, sans-serif" font-weight="900" letter-spacing="-18">
+    <text x="0" y="350" font-size="490" fill="#1e1d4d">verbi</text>
+  </g>
+
+  <g>
+    <rect x="690" y="72" width="95" height="95" rx="8" fill="#1e1d4d"/>
+    <rect x="1055" y="72" width="95" height="95" rx="8" fill="#1e1d4d"/>
+  </g>
+
+  <g font-family="Arial Black, Impact, sans-serif" font-weight="900">
+    <text x="1160" y="350" font-size="500" fill="#f97316">a</text>
+  </g>
+</svg>

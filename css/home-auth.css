@@ -1,0 +1,52 @@
+.home-account-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1px solid oklch(0.2 0.035 255 / 0.35);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  white-space: nowrap;
+  transition: color .2s, border-color .2s, background-color .2s;
+}
+
+/* Hover solo con puntero real (raton/trackpad) */
+@media (hover: hover) and (pointer: fine) {
+  .home-account-link:hover {
+    border-color: var(--coral);
+    background: color-mix(in oklch, var(--coral) 14%, transparent);
+  }
+}
+
+/* Feedback tactil equivalente, sin estado pegajoso */
+@media (hover: none) {
+  .home-account-link:active {
+    border-color: var(--coral);
+    background: color-mix(in oklch, var(--coral) 14%, transparent);
+    transform: scale(.96);
+  }
+}
+
+:root[data-theme="dark"] .home-account-link {
+  border-color: rgb(226 232 240 / 32%);
+}
+
+@media (max-width: 1050px) {
+  .home-account-link { padding-inline: 12px; }
+}
+
+@media (max-width: 760px) {
+  .home-account-link {
+    /* 44px reales: 36px era demasiado pequeno para el dedo */
+    min-height: var(--touch-target, 44px);
+    padding-inline: 13px;
+    font-size: 12px;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-account-link { transition: none; }
+}

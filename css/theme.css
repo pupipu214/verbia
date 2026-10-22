@@ -1,0 +1,507 @@
+/* ============================================================
+   Theme + base transversal (responsive y animaciones)
+   Se carga en TODAS las paginas: fija tokens, touch y motion.
+   ============================================================ */
+
+:root {
+  --touch-target: 44px;   /* objetivo tactil minimo recomendado */
+  --header-h: 68px;
+}
+
+/* Los efectos :hover solo deben aplicarse con puntero real
+   (raton/trackpad). En tactil se "pegaban" al tocar. */
+@media (hover: hover) and (pointer: fine) {
+  .theme-toggle:hover {
+    border-color: var(--coral);
+    background: color-mix(in oklch, var(--coral) 18%, transparent);
+    transform: translateY(-1px);
+  }
+}
+
+/* Feedback tactil equivalente al hover, sin estado pegajoso */
+@media (hover: none) {
+  .theme-toggle:active {
+    border-color: var(--coral);
+    background: color-mix(in oklch, var(--coral) 18%, transparent);
+    transform: scale(.94);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #111827;
+  --ink: #e5e7eb;
+  --mint: #263449;
+  --lime: #a8d8e8;
+  --coral: #f59a72;
+  --shadow-studio: 0 5px 16px rgb(0 0 0 / 24%);
+}
+
+:root[data-theme="dark"] body,
+:root[data-theme="dark"] .site-shell {
+  background-color: #111827;
+  color: #e5e7eb;
+}
+
+/* Modo oscuro sereno: menos parches de color y menos sombras duras. */
+:root[data-theme="dark"] .overview-card,
+:root[data-theme="dark"] .session-panel,
+:root[data-theme="dark"] .session-detail,
+:root[data-theme="dark"] .progress-panel,
+:root[data-theme="dark"] .builder-preview,
+:root[data-theme="dark"] .saved-card,
+:root[data-theme="dark"] .practice-stage-card,
+:root[data-theme="dark"] .history-card {
+  background: #1b2638;
+  border-color: rgb(226 232 240 / 14%);
+  box-shadow: 0 5px 16px rgb(0 0 0 / 22%);
+}
+
+:root[data-theme="dark"] .demo-note,
+:root[data-theme="dark"] .session-insight,
+:root[data-theme="dark"] .transcript-copy,
+:root[data-theme="dark"] .preview-hint,
+:root[data-theme="dark"] .upload-box {
+  background: #243247;
+  border-color: rgb(226 232 240 / 12%);
+}
+
+:root[data-theme="dark"] .session-filter,
+:root[data-theme="dark"] .session-option {
+  background: transparent;
+  border-color: rgb(226 232 240 / 20%);
+}
+
+:root[data-theme="dark"] .session-filter.is-active,
+:root[data-theme="dark"] .session-option[aria-pressed="true"] {
+  background: #33445d;
+  border-color: #9ccfe0;
+  color: #f8fafc;
+}
+
+/* Analisis: eliminar fondos crema/marron heredados en modo oscuro. */
+:root[data-theme="dark"] .analysis-dashboard,
+:root[data-theme="dark"] .session-detail,
+:root[data-theme="dark"] .detail-metric,
+:root[data-theme="dark"] .transcript-copy {
+  color: #e5e7eb;
+}
+
+:root[data-theme="dark"] .session-insight,
+:root[data-theme="dark"] .retroalimentacion-panel,
+:root[data-theme="dark"] .recommendation-panel {
+  background: #243247;
+  color: #e5e7eb;
+  border-color: rgb(168 216 232 / 18%);
+}
+
+:root[data-theme="dark"] #coherence-deviations li,
+:root[data-theme="dark"] .retroalimentacion-detalle li {
+  background: #1b2638;
+  color: #dbe4ee;
+}
+
+:root[data-theme="dark"] .detail-topline,
+:root[data-theme="dark"] .sample-label,
+:root[data-theme="dark"] .detail-kicker,
+:root[data-theme="dark"] .session-summary,
+:root[data-theme="dark"] .panel-kicker,
+:root[data-theme="dark"] .chart-axis,
+:root[data-theme="dark"] .chart-labels,
+:root[data-theme="dark"] .chart-legend {
+  color: #b8c6d6;
+}
+
+:root[data-theme="dark"] .analysis-dashboard h2,
+:root[data-theme="dark"] .analysis-dashboard h3,
+:root[data-theme="dark"] .analysis-dashboard h4 {
+  color: #f3f6fa;
+}
+
+/* El iframe de Verbo no debe mostrar el fondo negro por defecto del navegador. */
+:root[data-theme="dark"] .mascot-frame {
+  background: #1b2638 !important;
+  background-color: #1b2638 !important;
+}
+
+:root[data-theme="dark"] .btn-outline:hover,
+:root[data-theme="dark"] .btn-dark:hover {
+  background: #a8d8e8;
+  color: #111827;
+}
+
+:root[data-theme="dark"] :focus-visible {
+  outline: 3px solid #a8d8e8;
+  outline-offset: 3px;
+}
+
+/* Fondo base parejo: evita parches claros entre secciones. */
+:root[data-theme="dark"] main,
+:root[data-theme="dark"] .practice-layout,
+:root[data-theme="dark"] .practice-sidebar,
+:root[data-theme="dark"] .characters-section,
+:root[data-theme="dark"] .home-end-section,
+:root[data-theme="dark"] .history-content,
+:root[data-theme="dark"] .analysis-dashboard {
+  background-color: transparent;
+  color: #f1f5f9;
+}
+
+:root[data-theme="dark"] .site-header,
+:root[data-theme="dark"] .practice-header {
+  background: #172033;
+  border-color: rgb(226 232 240 / 16%);
+}
+
+.brand-logo {
+  width: 132px;
+  height: auto;
+}
+
+.site-footer .brand-logo {
+  width: 112px;
+}
+
+.theme-toggle {
+  display: inline-grid;
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgb(30 27 75 / 24%);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color .2s, border-color .2s, transform .2s;
+}
+
+/* Objetivos tactiles: nunca por debajo de 44px en movil */
+@media (max-width: 760px) {
+  .theme-toggle {
+    width: var(--touch-target);
+    height: var(--touch-target);
+  }
+  .site-footer .brand-logo { width: 96px; }
+}
+
+@media (max-width: 390px) {
+  .brand-logo { width: 104px; }
+}
+
+/* Tableta: logo intermedio */
+@media (min-width: 761px) and (max-width: 1050px) {
+  .brand-logo { width: 118px; }
+}
+
+/* Ajuste final: estas reglas quedan al final para unificar las superficies
+   despues de los estilos especificos de cada pagina. */
+:root[data-theme="dark"] .overview-card,
+:root[data-theme="dark"] .session-panel,
+:root[data-theme="dark"] .session-detail,
+:root[data-theme="dark"] .progress-panel,
+:root[data-theme="dark"] .builder-preview,
+:root[data-theme="dark"] .saved-card,
+:root[data-theme="dark"] .practice-stage-card,
+:root[data-theme="dark"] .history-card {
+  background: #1b2638;
+  border-color: rgb(226 232 240 / 14%);
+  box-shadow: 0 5px 16px rgb(0 0 0 / 22%);
+}
+
+:root[data-theme="dark"] .session-filter.is-active,
+:root[data-theme="dark"] .session-option[aria-pressed="true"] {
+  background: #33445d;
+  border-color: #9ccfe0;
+  color: #f8fafc;
+}
+
+.theme-toggle svg {
+  width: 19px;
+  height: 19px;
+}
+
+:root[data-theme="dark"] .theme-toggle {
+  border-color: rgb(226 232 240 / 28%);
+}
+
+:root[data-theme="dark"] .hero,
+:root[data-theme="dark"] .analysis-hero,
+:root[data-theme="dark"] .builder-hero,
+:root[data-theme="dark"] .history-hero,
+:root[data-theme="dark"] .home-end-section {
+  color: #f8fafc;
+}
+
+:root[data-theme="dark"] .hero-characters {
+  background: linear-gradient(145deg, #172033 0%, #253653 58%, #111827 100%);
+}
+
+:root[data-theme="dark"] .hero-characters h1,
+:root[data-theme="dark"] .hero-characters-content > p {
+  color: #f8fafc;
+}
+
+:root[data-theme="dark"] .site-footer,
+:root[data-theme="dark"] .ticker,
+:root[data-theme="dark"] .characters-section {
+  background: #0b1120;
+  color: #f1f5f9;
+}
+
+:root[data-theme="dark"] .site-nav,
+:root[data-theme="dark"] .practice-nav.is-open {
+  background: #172033;
+}
+
+:root[data-theme="dark"] .site-nav {
+  border-color: rgb(226 232 240 / 20%);
+}
+
+:root[data-theme="dark"] .filters-bar,
+:root[data-theme="dark"] .characters-wave-section,
+:root[data-theme="dark"] .characters-wave-section.is-simulation {
+  background: #111827;
+  border-color: rgb(226 232 240 / 12%);
+}
+
+:root[data-theme="dark"] .overview-card,
+:root[data-theme="dark"] .session-panel,
+:root[data-theme="dark"] .session-detail,
+:root[data-theme="dark"] .history-card,
+:root[data-theme="dark"] .builder-step,
+:root[data-theme="dark"] .builder-guide-card,
+:root[data-theme="dark"] .builder-sidepanel,
+:root[data-theme="dark"] .practice-info-card,
+:root[data-theme="dark"] .character-picker-card,
+:root[data-theme="dark"] .scene-badge,
+:root[data-theme="dark"] .scene-character-label,
+:root[data-theme="dark"] .round-control {
+  background-color: #202c40;
+  color: #f1f5f9;
+}
+
+:root[data-theme="dark"] .demo-note,
+:root[data-theme="dark"] .analysis-status,
+:root[data-theme="dark"] .session-insight,
+:root[data-theme="dark"] .transcript-copy,
+:root[data-theme="dark"] .session-option[aria-pressed="true"],
+:root[data-theme="dark"] .analysis-transcript,
+:root[data-theme="dark"] .analysis-metric,
+:root[data-theme="dark"] .preview-hint,
+:root[data-theme="dark"] .upload-box {
+  background-color: #26364b;
+  color: #f1f5f9;
+}
+
+:root[data-theme="dark"] .history-card {
+  background-color: #202c40;
+}
+
+:root[data-theme="dark"] .history-session-copy p,
+:root[data-theme="dark"] .history-empty p,
+:root[data-theme="dark"] .analysis-session-meta,
+:root[data-theme="dark"] .analysis-metric span,
+:root[data-theme="dark"] .analysis-transcript .transcript-empty,
+:root[data-theme="dark"] .panel-kicker,
+:root[data-theme="dark"] .session-total,
+:root[data-theme="dark"] .session-option-copy small,
+:root[data-theme="dark"] .session-option-score small,
+:root[data-theme="dark"] .session-empty,
+:root[data-theme="dark"] .detail-topline,
+:root[data-theme="dark"] .sample-label,
+:root[data-theme="dark"] .detail-kicker,
+:root[data-theme="dark"] .session-summary,
+:root[data-theme="dark"] .builder-step-title p,
+:root[data-theme="dark"] .field-meta,
+:root[data-theme="dark"] .field-status,
+:root[data-theme="dark"] .upload-box small,
+:root[data-theme="dark"] .form-actions > p,
+:root[data-theme="dark"] .preview-details p,
+:root[data-theme="dark"] .preview-hint p,
+:root[data-theme="dark"] .guide-progress li,
+:root[data-theme="dark"] .wave-info p,
+:root[data-theme="dark"] .chart-axis,
+:root[data-theme="dark"] .chart-labels,
+:root[data-theme="dark"] .chart-legend {
+  color: #cbd5e1;
+}
+
+:root[data-theme="dark"] .session-insight .panel-kicker {
+  color: #cbd5e1;
+}
+
+:root[data-theme="dark"] .builder-guide-card {
+  background: linear-gradient(145deg, #26364b, #172033);
+}
+
+:root[data-theme="dark"] .saved-section {
+  background: #151d2e;
+}
+
+:root[data-theme="dark"] .scene-portrait,
+:root[data-theme="dark"] .picker-avatar {
+  background-color: #26364b;
+}
+
+:root[data-theme="dark"] .scene-portrait {
+  border-color: rgb(226 232 240 / 24%);
+}
+
+:root[data-theme="dark"] .practice-scene {
+  background: linear-gradient(145deg, #202c40 5%, #172033 100%);
+}
+
+:root[data-theme="dark"] .practice-header .practice-nav a,
+:root[data-theme="dark"] .practice-exit,
+:root[data-theme="dark"] .practice-heading p,
+:root[data-theme="dark"] .picker-copy small,
+:root[data-theme="dark"] .practice-description p,
+:root[data-theme="dark"] .rubric-copy small,
+:root[data-theme="dark"] .practice-privacy,
+:root[data-theme="dark"] .scene-session-label,
+:root[data-theme="dark"] .scene-character-label span,
+:root[data-theme="dark"] .scene-prompt,
+:root[data-theme="dark"] .conversation-message p,
+:root[data-theme="dark"] .practice-feedback {
+  color: #cbd5e1;
+}
+
+:root[data-theme="dark"] .category-desc,
+:root[data-theme="dark"] .meta-item span,
+:root[data-theme="dark"] .filters-label {
+  color: #cbd5e1;
+}
+
+:root[data-theme="dark"] .hero-characters-meta {
+  background: #202c40;
+}
+
+:root[data-theme="dark"] .wave-info {
+  color: #f1f5f9;
+}
+
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] textarea,
+:root[data-theme="dark"] select,
+:root[data-theme="dark"] .history-dialog,
+:root[data-theme="dark"] .dialog-card {
+  border-color: rgb(226 232 240 / 24%);
+  background-color: #202c40;
+  color: #f1f5f9;
+}
+
+/* ===== Parche visual modo oscuro: superficies y contraste ===== */
+:root[data-theme="dark"] .btn-outline {
+  color: #f1f5f9;
+  border-color: rgb(226 232 240 / 35%);
+}
+:root[data-theme="dark"] .btn-outline:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+:root[data-theme="dark"] .btn-dark {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+:root[data-theme="dark"] .btn-dark:hover { background: #cbd5e1; }
+:root[data-theme="dark"] .btn-solid { color: #1a1005; }
+
+:root[data-theme="dark"] .character-card,
+:root[data-theme="dark"] .character-info,
+:root[data-theme="dark"] .wave-info,
+:root[data-theme="dark"] .practice-stage-card,
+:root[data-theme="dark"] .practice-rubric,
+:root[data-theme="dark"] .practice-workspace,
+:root[data-theme="dark"] .practice-info-card,
+:root[data-theme="dark"] .analysis-next-inner,
+:root[data-theme="dark"] .history-list,
+:root[data-theme="dark"] .history-card,
+:root[data-theme="dark"] .analysis-metrics,
+:root[data-theme="dark"] .analysis-content,
+:root[data-theme="dark"] .recommendation-panel,
+:root[data-theme="dark"] .transcript-panel,
+:root[data-theme="dark"] .progress-panel {
+  background-color: #1a2538;
+  border-color: rgb(226 232 240 / 14%);
+  color: #f1f5f9;
+}
+
+:root[data-theme="dark"] .character-info h3,
+:root[data-theme="dark"] .wave-info h3,
+:root[data-theme="dark"] .practice-heading h1,
+:root[data-theme="dark"] .picker-copy strong,
+:root[data-theme="dark"] .scene-character-label strong,
+:root[data-theme="dark"] .conversation-message strong,
+:root[data-theme="dark"] .history-session-copy strong,
+:root[data-theme="dark"] .analysis-hero-copy h1,
+:root[data-theme="dark"] .history-hero-inner h1,
+:root[data-theme="dark"] .dialog-card h2,
+:root[data-theme="dark"] h1,
+:root[data-theme="dark"] h2,
+:root[data-theme="dark"] h3 {
+  color: #f8fafc;
+}
+
+:root[data-theme="dark"] .conversation-bubbles,
+:root[data-theme="dark"] .scene-conversation,
+:root[data-theme="dark"] .history-message,
+:root[data-theme="dark"] .analysis-section {
+  background-color: #162032;
+  border-color: rgb(226 232 240 / 12%);
+  color: #e2e8f0;
+}
+
+:root[data-theme="dark"] .session-option,
+:root[data-theme="dark"] .session-filter,
+:root[data-theme="dark"] .history-card button {
+  background-color: #1a2538;
+  border-color: rgb(226 232 240 / 18%);
+  color: #e2e8f0;
+}
+
+:root[data-theme="dark"] ::selection { background: #334155; color: #f8fafc; }
+
+:root[data-theme="dark"] input::placeholder,
+:root[data-theme="dark"] textarea::placeholder {
+  color: #94a3b8;
+}
+
+:root[data-theme="dark"] .history-dialog::backdrop {
+  background: rgb(2 6 23 / 78%);
+}
+
+@media (max-width: 760px) {
+  .brand-logo {
+    width: 112px;
+  }
+
+  .site-footer .brand-logo {
+    width: 100px;
+  }
+
+  .theme-toggle {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 390px) {
+  .practice-header { gap: 8px; }
+  .practice-header .brand-logo { width: 94px; }
+  .practice-header .theme-toggle { width: 32px; height: 32px; }
+}
+
+@media (min-width: 761px) and (max-width: 1050px) {
+  .site-header {
+    gap: 12px;
+    padding-inline: 18px;
+  }
+
+  .site-header .brand-logo { width: 104px; }
+  .site-nav { gap: clamp(6px, 1vw, 10px); }
+  .site-nav a { font-size: 11px; }
+  .site-header .header-cta { display: none; }
+}

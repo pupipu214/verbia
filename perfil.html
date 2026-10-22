@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Consulta tu perfil y administra tu cuenta de VerbIA." />
+  <title>Mi perfil — VerbIA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&family=Figtree:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/verbia.css" />
+  <link rel="stylesheet" href="css/perfil.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <script src="js/navigation.js" defer></script>
+  <script src="js/perfil.js" defer></script>
+  <script src="js/theme.js" defer></script>
+</head>
+<body>
+  <div class="site-shell">
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" />
+
+    <header class="site-header">
+      <a class="wordmark" href="index.html#inicio" aria-label="Verbai, ir al inicio">
+        <img class="brand-logo" src="static/img/verbai-logo-final.svg" alt="Verbai" />
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
+        <a href="index.html#flujo">Cómo funciona</a>
+        <a href="analisis.html">Análisis</a>
+        <a href="historial.html">Historial</a>
+        <a href="personajes.html">Personajes</a>
+        <a href="constructor.html">Constructor</a>
+        <a href="perfil.html" class="active" aria-current="page">Mi perfil</a>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" title="Activar modo oscuro">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.5 8.5 0 1 0 20.5 14.2Z" /></svg>
+        </button>
+        <a class="btn btn-solid header-cta" href="analisis.html">Ver mi progreso</a>
+        <label class="icon-button" for="nav-toggle" aria-label="Abrir o cerrar el menú">
+          <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16" /><path d="M4 12h16" /><path d="M4 18h16" /></svg>
+          <svg class="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+        </label>
+      </div>
+    </header>
+
+    <main class="profile-main">
+      <section class="profile-hero" aria-labelledby="profile-title">
+        <p class="eyebrow"><span class="signal-dot"></span> TU ESPACIO PERSONAL</p>
+        <h1 id="profile-title">Hola, <em id="profile-greeting">qué gusto verte.</em></h1>
+        <p>Administra tu cuenta y vuelve a tus prácticas cuando quieras.</p>
+      </section>
+
+      <section class="profile-content" aria-label="Información de tu cuenta">
+        <article class="profile-card">
+          <div class="profile-card-heading">
+            <div>
+              <p class="eyebrow">CUENTA VERBIA</p>
+              <h2>Tu perfil</h2>
+            </div>
+            <span class="profile-badge"><span aria-hidden="true"></span> Cuenta activa</span>
+          </div>
+
+          <div class="profile-identity">
+            <div class="profile-avatar" aria-label="Foto de perfil">
+              <img id="profile-photo" alt="" hidden />
+              <span id="profile-initials" aria-hidden="true">V</span>
+            </div>
+            <div class="profile-fields">
+              <div class="profile-field">
+                <span>Nombre</span>
+                <strong id="profile-name">Cargando perfil…</strong>
+              </div>
+              <div class="profile-field">
+                <span>Correo electrónico</span>
+                <strong id="profile-email">—</strong>
+              </div>
+              <div class="profile-field">
+                <span>Cuenta creada</span>
+                <strong id="profile-created">—</strong>
+              </div>
+            </div>
+          </div>
+
+          <p class="profile-status" id="profile-status" role="status" aria-live="polite"></p>
+          <div class="profile-actions">
+            <a class="btn btn-solid" href="analisis.html">Ver mis análisis</a>
+            <a class="btn btn-outline" href="historial.html">Ver mi historial</a>
+          </div>
+        </article>
+
+        <aside class="profile-side">
+          <div class="profile-note">
+            <span class="profile-note-icon" aria-hidden="true">✳</span>
+            <p><strong>Tu progreso es solo tuyo.</strong> Las prácticas y los análisis de esta cuenta no se comparten con otros usuarios.</p>
+          </div>
+          <button class="profile-logout" id="profile-logout" type="button">
+            Cerrar sesión
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 17l5-5-5-5M15 12H3" /><path d="M12 3h5a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5" /></svg>
+          </button>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="wordmark" href="index.html#inicio" aria-label="Verbai, ir al inicio"><img class="brand-logo" data-dark-background src="static/img/verbai-logo-dark.svg" alt="Verbai" /></a>
+      <span>Entrena tu voz, no tu guion.</span>
+      <a href="analisis.html">Volver a mi progreso ↑</a>
+    </footer>
+  </div>
+</body>
+</html>

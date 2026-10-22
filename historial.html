@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Consulta, revisa y administra tus sesiones de práctica de VerbIA." />
+  <title>Historial de sesiones — VerbIA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&family=Figtree:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/verbia.css" />
+  <link rel="stylesheet" href="css/historial.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <script src="js/navigation.js" defer></script>
+  <script src="js/historial.js?v=20261020-3" defer></script>
+  <script src="js/theme.js" defer></script>
+</head>
+<body>
+  <div class="site-shell">
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" />
+
+    <header class="site-header">
+      <a class="wordmark" href="index.html#inicio" aria-label="Verbai, ir al inicio">
+        <img class="brand-logo" src="static/img/verbai-logo-final.svg" alt="Verbai" />
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
+        <a href="index.html#flujo">Cómo funciona</a>
+        <a href="analisis.html">Análisis</a>
+        <a href="historial.html" class="active" aria-current="page">Historial</a>
+        <a href="personajes.html">Personajes</a>
+        <a href="constructor.html">Constructor</a>
+        <a href="perfil.html">Mi perfil</a>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" title="Activar modo oscuro">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.5 8.5 0 1 0 20.5 14.2Z" /></svg>
+        </button>
+        <a class="btn btn-solid header-cta" href="personajes.html">Practicar de nuevo
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+        </a>
+        <label class="icon-button" for="nav-toggle" aria-label="Abrir o cerrar el menú">
+          <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16" /><path d="M4 12h16" /><path d="M4 18h16" /></svg>
+          <svg class="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+        </label>
+      </div>
+    </header>
+
+    <main>
+      <section class="history-hero">
+        <div class="history-hero-inner">
+          <div>
+            <p class="eyebrow"><span class="signal-dot"></span> CADA PRÁCTICA CUENTA</p>
+            <h1>Tu camino<br />queda <em>registrado.</em></h1>
+            <p>Revisa cuándo practicaste, cuánto duró cada sesión y vuelve a consultar lo que aprendiste.</p>
+          </div>
+          <div class="history-hero-art" aria-hidden="true">
+            <span class="history-art-orbit"></span>
+            <span class="history-art-star">✳</span>
+            <span class="history-art-note">UN PASO<br />A LA VEZ</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="history-content" aria-labelledby="history-title">
+        <div class="history-heading">
+          <div>
+            <p class="eyebrow">TUS CONVERSACIONES / 01</p>
+            <h2 id="history-title">Historial de sesiones</h2>
+          </div>
+          <p class="history-count" id="history-count" aria-live="polite">Cargando sesiones…</p>
+        </div>
+
+        <div id="history-message" class="history-message" role="status" aria-live="polite"></div>
+        <div id="session-list" class="history-list" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="wordmark" href="index.html#inicio" aria-label="Verbai, ir al inicio"><img class="brand-logo" data-dark-background src="static/img/verbai-logo-dark.svg" alt="Verbai" /></a>
+      <span>Entrena tu voz, no tu guion.</span>
+      <a href="personajes.html">Volver a practicar ↑</a>
+    </footer>
+  </div>
+
+  <dialog class="history-dialog" id="analysis-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-card">
+      <button class="dialog-close" id="dialog-close" type="button" aria-label="Cerrar análisis">×</button>
+      <p class="eyebrow">REVISIÓN DE PRÁCTICA</p>
+      <h2 id="dialog-title">Análisis de la sesión</h2>
+      <div id="analysis-content" class="analysis-content"></div>
+    </div>
+  </dialog>
+</body>
+</html>

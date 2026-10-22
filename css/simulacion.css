@@ -1,0 +1,180 @@
+/* ============================================================
+   Simulación de aula (Leonardo + Luis con voces Fish propias).
+   Reutiliza practicar.css; aquí solo se añade el layout de dos
+   retratos, el indicador de quién habla y los detalles duales.
+   ============================================================ */
+
+/* --- Ficha lateral: los dos alumnos del aula --- */
+.duo-roster {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.duo-mini {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid oklch(0.88 0.02 255 / .8);
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 8px 18px oklch(0.55 0.02 255 / .06);
+}
+
+.duo-mini[data-mini="leonardo"] { --student-accent: oklch(0.72 0.16 85); }
+.duo-mini[data-mini="luis"] { --student-accent: oklch(0.65 0.16 38); }
+
+.duo-mini-avatar {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 auto;
+  padding: 3px;
+  border-radius: 15px;
+  background: color-mix(in oklch, var(--student-accent) 14%, white);
+}
+
+.duo-mini-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  object-position: center 25%;
+}
+
+.duo-mini-copy { display: grid; gap: 2px; }
+.duo-mini-copy strong { font: 800 13px/1.25 var(--font-display); }
+.duo-mini-copy small {
+  color: oklch(0.2 0.035 255 / .58);
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+/* --- Escena: dos retratos, uno a cada lado --- */
+.duo-students {
+  position: absolute;
+  z-index: 1;
+  top: 78px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 30px;
+  pointer-events: none;
+}
+
+.duo-student {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.duo-student[data-student="leonardo"] { --student-accent: oklch(0.72 0.16 85); }
+.duo-student[data-student="luis"] { --student-accent: oklch(0.65 0.16 38); }
+
+.duo-student[data-student="luis"] { align-items: flex-end; }
+.duo-student[data-student="luis"] .scene-character-label {
+  border-radius: 14px 0 14px 14px;
+  margin: 7px 12px 0 0;
+}
+
+.duo-student .scene-portrait {
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.duo-student.is-speaking .scene-portrait {
+  transform: translateY(-4px) scale(1.04);
+  border-color: var(--student-accent);
+  box-shadow: 0 0 0 4px color-mix(in oklch, var(--student-accent) 26%, transparent),
+    0 14px 30px color-mix(in oklch, var(--student-accent) 30%, transparent);
+}
+
+.duo-student.is-speaking .portrait-live {
+  background: var(--student-accent);
+  animation: duo-blink .8s ease-in-out infinite alternate;
+}
+
+@keyframes duo-blink {
+  to { opacity: .3; }
+}
+
+
+/* --- Conversación: cada alumno con su color --- */
+.conversation-message[data-speaker="leonardo"] {
+  border-left: 3px solid oklch(0.72 0.16 85);
+}
+.conversation-message[data-speaker="leonardo"] strong {
+  color: oklch(0.45 0.1 85);
+}
+.conversation-message[data-speaker="luis"] {
+  border-right: 3px solid oklch(0.65 0.16 38);
+  border-left: none;
+}
+.conversation-message[data-speaker="luis"] strong {
+  color: oklch(0.48 0.12 38);
+}
+.conversation-message:not([data-speaker]) strong {
+  color: oklch(0.35 0.08 255);
+}
+
+/* --- Modo oscuro (sigue los patrones de theme.css) --- */
+:root[data-theme="dark"] .duo-mini {
+  background-color: #202c40;
+  border-color: rgb(226 232 240 / 18%);
+}
+:root[data-theme="dark"] .duo-mini-copy strong {
+  color: #f1f5f9;
+}
+:root[data-theme="dark"] .duo-mini-copy small {
+  color: #94a3b8;
+}
+:root[data-theme="dark"] .duo-mini-avatar {
+  background-color: #26364b;
+}
+:root[data-theme="dark"] .conversation-message[data-speaker="leonardo"] strong {
+  color: oklch(0.78 0.14 85);
+}
+:root[data-theme="dark"] .conversation-message[data-speaker="luis"] strong {
+  color: oklch(0.75 0.15 38);
+}
+:root[data-theme="dark"] .conversation-message:not([data-speaker]) strong {
+  color: #e2e8f0;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .duo-students { top: 72px; padding: 0 20px; }
+  .duo-student .scene-portrait { width: 94px; height: 110px; }
+}
+
+@media (max-width: 760px) {
+  /* En móvil los retratos ocupan su propio bloque para no tapar el diálogo. */
+  .duo-students {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 38px;
+    padding: 0 14px;
+    flex: 0 0 auto;
+  }
+  .duo-student .scene-portrait { width: 84px; height: 98px; border-radius: 20px; }
+  .duo-student .scene-portrait img { border-radius: 15px; }
+  .duo-student { min-width: 0; max-width: 44%; }
+  .duo-student .scene-character-label { width: 100%; min-width: 0; max-width: 128px; padding: 7px 9px; }
+  .duo-student .scene-character-label strong,
+  .duo-student .scene-character-label span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .conversation-log .conversation-message:first-child { max-width: 82%; margin-inline: auto; }
+  .conversation-log .conversation-message:first-child p { font-size: 11.5px; line-height: 1.4; }
+}
+
+@media (max-width: 390px) {
+  .duo-students { margin-top: 34px; padding-inline: 8px; }
+  .duo-student .scene-portrait { width: 68px; height: 80px; }
+  .duo-student .scene-character-label { max-width: 105px; font-size: 10px; }
+  .duo-student .scene-character-label strong { font-size: 11px; }
+  .duo-student .scene-character-label span { font-size: 9px; }
+}

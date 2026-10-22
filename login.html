@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Inicia sesión o crea tu cuenta de VerbIA con Google.">
+  <meta name="theme-color" content="#f8f6ef">
+  <title>Entrar a VerbIA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+  <div class="auth-shell">
+    <header class="auth-header">
+      <a class="auth-brand" href="/login" aria-label="VerbIA">
+        <img src="static/img/verbai-logo-final.svg" alt="VerbIA">
+      </a>
+      <a class="back-link" href="/" aria-label="Volver al inicio">
+        Volver al inicio
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 12H5m0 0 6 6m-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </header>
+
+    <main class="auth-main">
+      <section class="welcome-panel" aria-labelledby="welcome-title">
+        <div class="welcome-copy">
+          <span class="welcome-kicker"><span></span> TU VOZ TIENE ALGO QUE DECIR</span>
+          <h1 id="welcome-title">Habla<br><em>sin miedo.</em></h1>
+          <p>Un espacio para practicar, equivocarte y descubrir todo lo que tu voz puede hacer.</p>
+        </div>
+        <div class="mascot-scene">
+          <div class="mascot-stage">
+            <span class="mascot-glow" aria-hidden="true"></span>
+            <span class="mascot-ring" aria-hidden="true"></span>
+            <span class="mascot-floor" aria-hidden="true"></span>
+            <iframe
+              class="mascot-frame"
+              src="verbo-compartir.html?embed=1"
+              title="Verbo, la mascota de VerbIA, te da la bienvenida"
+              loading="eager"
+              tabindex="-1"
+              allowtransparency="true"
+              aria-hidden="true"></iframe>
+            <div class="mascot-waves" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+          <span class="mascot-spark mascot-spark-one" aria-hidden="true">✳</span>
+          <span class="mascot-spark mascot-spark-two" aria-hidden="true">✦</span>
+        </div>
+      </section>
+
+      <section class="auth-card" aria-labelledby="auth-title">
+        <div class="card-mark" aria-hidden="true"><span>✳</span></div>
+        <p class="card-eyebrow"><span aria-hidden="true"></span><span id="auth-eyebrow">QUÉ BUENO VERTE</span></p>
+        <h2 id="auth-title">Tu voz tiene<br><em>un lugar aquí.</em></h2>
+        <p class="card-intro" id="auth-description">Entra y continúa donde lo dejaste.</p>
+
+        <div class="auth-tabs" role="tablist" aria-label="Acceso a VerbIA">
+          <button class="auth-tab is-active" id="tab-login" type="button" role="tab" aria-selected="true" aria-controls="google-panel" data-mode="login">Iniciar sesión</button>
+          <button class="auth-tab" id="tab-register" type="button" role="tab" aria-selected="false" aria-controls="google-panel" data-mode="register">Crear cuenta</button>
+        </div>
+
+        <div class="google-panel" id="google-panel" role="tabpanel" aria-labelledby="tab-login">
+          <div class="google-button-wrap" id="google-button-wrap">
+            <div id="google-button"></div>
+          </div>
+          <button class="google-placeholder" id="google-placeholder" type="button" disabled hidden>
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M43.6 24.5c0-1.4-.1-2.8-.4-4.1H24v7.8h11c-.5 2.5-1.9 4.6-4 6v5.1h6.5c3.8-3.5 6.1-8.6 6.1-14.8z"/><path fill="#34A853" d="M24 44c5.5 0 10.1-1.8 13.5-4.8L31 34.1c-1.8 1.2-4.1 2-7 2-5.3 0-9.8-3.6-11.4-8.4H5.9v5.2C9.3 39.5 16 44 24 44z"/><path fill="#FBBC05" d="M12.6 27.7a12 12 0 0 1 0-7.4v-5.2H5.9a20 20 0 0 0 0 17.8l6.7-5.2z"/><path fill="#EA4335" d="M24 11.9c3 0 5.7 1 7.8 3.1l5.8-5.8C34.1 5.8 29.5 4 24 4 16 4 9.3 8.5 5.9 15.1l6.7 5.2c1.6-4.8 6.1-8.4 11.4-8.4z"/></svg>
+            <span id="google-placeholder-label">Continuar con Google</span>
+          </button>
+          <p class="auth-status" id="auth-status" role="status" aria-live="polite"></p>
+          <div class="setup-notice" id="setup-notice" hidden>
+            <span class="setup-icon" aria-hidden="true">i</span>
+            <p>El acceso con Google se habilitará cuando termine la configuración del servidor.</p>
+          </div>
+          <div class="signed-in-panel" id="signed-in-panel" hidden>
+            <p>Ya entraste como <strong id="signed-in-name"></strong>.</p>
+            <a class="continue-link" href="/">Continuar a VerbIA <span aria-hidden="true">→</span></a>
+            <button class="logout-button" id="logout-button" type="button">Cerrar sesión</button>
+          </div>
+        </div>
+
+        <div class="privacy-note">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 10V7a5 5 0 0 1 10 0v3M5 10h14v11H5z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 14v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          <span>Acceso seguro. Nunca compartimos tu contraseña.</span>
+        </div>
+        <p class="account-note">Al continuar, Google confirma tu identidad y comparte tu nombre y correo con VerbIA.</p>
+      </section>
+    </main>
+
+    <footer class="auth-footer">
+      <span>VERBIA</span>
+      <span>Entrena tu voz, no tu guion.</span>
+    </footer>
+  </div>
+  <script src="js/auth.js" defer></script>
+</body>
+</html>

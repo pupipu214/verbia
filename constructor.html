@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Crea tu propio personaje para practicar conversaciones con VerbIA." />
+  <title>Constructor — VerbIA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&family=Figtree:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/verbia.css" />
+  <link rel="stylesheet" href="css/constructor.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <script src="js/navigation.js" defer></script>
+  <script src="js/constructor.js" defer></script>
+  <script src="js/theme.js" defer></script>
+</head>
+<body>
+  <div class="site-shell">
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" />
+
+    <header class="site-header">
+      <a class="wordmark" href="index.html#inicio" aria-label="Verbai, ir al inicio">
+        <img class="brand-logo" src="static/img/verbai-logo-final.svg" alt="Verbai" />
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
+        <a href="index.html#flujo">Cómo funciona</a>
+        <a href="analisis.html">Análisis</a>
+        <a href="historial.html">Historial</a>
+        <a href="personajes.html">Personajes</a>
+        <a href="constructor.html" class="active" aria-current="page">Constructor</a>
+        <a href="perfil.html">Mi perfil</a>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" title="Activar modo oscuro">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.5 8.5 0 1 0 20.5 14.2Z" /></svg>
+        </button>
+        <a class="btn btn-solid header-cta" href="#crear-personaje">Crear personaje
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14" /><path d="M5 12h14" /></svg>
+        </a>
+        <label class="icon-button" for="nav-toggle" aria-label="Abrir o cerrar el menú">
+          <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16" /><path d="M4 12h16" /><path d="M4 18h16" /></svg>
+          <svg class="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+        </label>
+      </div>
+    </header>
+
+    <main>
+      <section class="builder-hero">
+        <div class="builder-hero-orbit" aria-hidden="true"></div>
+        <div class="builder-hero-inner">
+          <div class="builder-hero-copy">
+            <p class="eyebrow"><span class="signal-dot"></span> TU TALLER CREATIVO</p>
+            <h1>Imagina una voz.<br /><em>Dale vida.</em></h1>
+            <p>Crea un personaje a tu medida para practicar conversaciones reales. Verbo te acompaña durante todo el proceso.</p>
+            <a class="btn btn-solid" href="#crear-personaje">Empezar a crear
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+            </a>
+          </div>
+        </div>
+        <div class="builder-hero-foot"><span>01 — CREA</span><span>02 — PERSONALIZA</span><span>03 — PRUEBA Y GUARDA</span></div>
+      </section>
+
+      <section class="builder-workspace section-wrap" id="crear-personaje">
+        <div class="builder-heading">
+          <div>
+            <p class="eyebrow">TU PRÓXIMO PERSONAJE / 01</p>
+            <h2>Empecemos<br /><em>por lo esencial.</em></h2>
+          </div>
+          <p>Completa los pasos en el orden que quieras. Tu tarjeta de vista previa se actualizará mientras creas.</p>
+        </div>
+
+        <div class="builder-layout">
+          <form class="builder-form" id="character-form">
+            <section class="builder-step" data-guide="name">
+              <div class="builder-step-title">
+                <span class="builder-step-number">01</span>
+                <div><h3>¿Cómo se llama?</h3><p>Elige un nombre fácil de recordar.</p></div>
+              </div>
+              <label class="field-label" for="character-name">Nombre del personaje</label>
+              <input id="character-name" name="name" type="text" maxlength="40" placeholder="Ej. Alex, tu coach de entrevistas" required />
+              <div class="field-meta"><span>Un nombre corto funciona muy bien.</span><span id="name-count">0 / 40</span></div>
+            </section>
+
+            <section class="builder-step" data-guide="description">
+              <div class="builder-step-title">
+                <span class="builder-step-number">02</span>
+                <div><h3>¿De qué hablará?</h3><p>Cuéntanos quién es y qué tipo de conversación quieres practicar.</p></div>
+              </div>
+              <label class="field-label" for="character-tema">Tema de la práctica</label>
+              <input id="character-tema" name="topic" type="text" maxlength="80" placeholder="Ej. Entrevistas de trabajo, comida saludable, viajes a Japón…" />
+              <div class="field-meta"><span>Así saludará tu personaje al empezar (opcional).</span><span id="topic-count">0 / 80</span></div>
+              <label class="field-label" for="character-description">Descripción e instrucciones</label>
+              <textarea id="character-description" name="description" maxlength="600" rows="4" placeholder="Ej. Es una reclutadora amable pero exigente. Hazme preguntas sobre mi experiencia y ayúdame a prepararme para una entrevista." required></textarea>
+              <div class="field-meta"><span>Incluye el contexto y el tono que debe usar.</span><span id="description-count">0 / 280</span></div>
+            </section>
+
+            <section class="builder-step" data-guide="image">
+              <div class="builder-step-title">
+                <span class="builder-step-number">03</span>
+                <div><h3>Ponle una imagen</h3><p>Una foto o ilustración ayuda a reconocer tu personaje.</p></div>
+              </div>
+              <label class="upload-box" for="character-image">
+                <span class="upload-icon" aria-hidden="true">＋</span>
+                <span><strong>Elige una imagen</strong><small>JPG, PNG o WebP · máximo 1 MB</small></span>
+                <span class="upload-action">Buscar</span>
+              </label>
+              <input class="visually-hidden" id="character-image" name="image" type="file" accept="image/jpeg,image/png,image/webp" />
+              <p class="field-status" id="image-status" aria-live="polite">La imagen es opcional.</p>
+            </section>
+
+            <section class="builder-step" data-guide="voice">
+              <div class="builder-step-title">
+                <span class="builder-step-number">04</span>
+                <div><h3>Elige su voz real</h3><p>Voces de VerbIA (Fish Audio). Pulsa Probar para escuchar cómo suena.</p></div>
+              </div>
+              <label class="field-label" for="voice-select">Voz para la prueba</label>
+              <select id="voice-select" name="voice"><option value="">Cargando voces…</option></select>
+              <div class="voice-actions">
+                <button class="btn btn-solid" type="button" id="play-voice">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg> Probar voz
+                </button>
+                <button class="btn btn-outline" type="button" id="stop-voice" disabled>Detener</button>
+              </div>
+              <p class="field-status" id="voice-status" aria-live="polite">Cargando las voces reales de VerbIA…</p>
+            </section>
+
+            <div class="form-actions">
+              <button class="btn btn-dark create-button" type="submit">Guardar personaje
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+              </button>
+              <p>Se guardará en este navegador para que puedas volver a verlo.</p>
+            </div>
+            <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+          </form>
+
+          <aside class="builder-sidepanel" aria-label="Asistente y vista previa">
+            <section class="builder-guide-card" aria-label="Verbo te orienta en cada etapa">
+              <div class="builder-guide-header">
+                <span>VERBO TE GUÍA</span>
+                <span id="guide-step-number">PASO 01 / 04</span>
+              </div>
+              <div class="builder-guide-visual">
+                <iframe src="verbo-compartir.html?embed=1" title="Verbo, mascota de VerbIA" loading="eager" allowtransparency="true" style="background:transparent;border:0"></iframe>
+                <p class="builder-speech" id="verbo-tip" aria-live="polite">¡Hola! Soy Verbo. Primero, pensemos un nombre para tu personaje.</p>
+              </div>
+              <ol class="guide-progress" aria-label="Pasos para crear tu personaje">
+                <li data-guide-step="name" aria-current="step"><span>01</span><span>Nombre</span></li>
+                <li data-guide-step="description"><span>02</span><span>Descripción</span></li>
+                <li data-guide-step="image"><span>03</span><span>Imagen</span></li>
+                <li data-guide-step="voice"><span>04</span><span>Voz</span></li>
+              </ol>
+            </section>
+
+            <section class="builder-preview" aria-label="Vista previa de tu personaje">
+              <div class="preview-top"><span>VISTA PREVIA</span><span class="preview-live"><i></i> EN VIVO</span></div>
+              <div class="preview-portrait" id="preview-portrait">
+                <img id="preview-image" alt="" hidden />
+                <span id="preview-placeholder" aria-hidden="true">✳</span>
+                <span class="preview-index">TU PERSONAJE</span>
+              </div>
+              <div class="preview-details">
+                <h3 id="preview-name">Tu personaje</h3>
+                <p id="preview-description">Aquí aparecerá la descripción de tu personaje cuando la escribas.</p>
+                <div class="preview-tags"><span>Personalizado</span><span id="preview-voice-tag">Voz por elegir</span></div>
+              </div>
+              <div class="preview-hint"><span aria-hidden="true">✦</span><p>Esta tarjeta cambia contigo. Prueba distintos nombres, descripciones e imágenes.</p></div>
+            </section>
+          </aside>
+        </div>
+      </section>
+
+      <section class="saved-section" id="mis-personajes">
+        <div class="section-wrap">
+          <div class="saved-heading">
+            <div><p class="eyebrow">TU COLECCIÓN / 02</p><h2>Personajes<br /><em>que has creado.</em></h2></div>
+            <p>Los personajes que guardes aparecerán aquí en este dispositivo.</p>
+          </div>
+          <div class="saved-grid" id="saved-grid" aria-live="polite"></div>
+          <p class="saved-empty" id="saved-empty">Todavía no has guardado personajes. ¡El primero puede ser el que estás creando!</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="wordmark" href="index.html#inicio" aria-label="Verbai, ir al inicio"><img class="brand-logo" data-dark-background src="static/img/verbai-logo-dark.svg" alt="Verbai" /></a>
+      <span>Entrena tu voz, no tu guion.</span>
+      <a href="#crear-personaje">Volver al constructor ↑</a>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,628 @@
+:root {
+  color-scheme: light;
+  --auth-paper: #f8f6ef;
+  --auth-ink: #27233f;
+  --auth-muted: #706c7a;
+  --auth-coral: #f58b65;
+  --auth-blue: #a9d8f0;
+  --auth-border: rgb(39 35 63 / 18%);
+  font-family: "Figtree", system-ui, sans-serif;
+  background:
+    radial-gradient(ellipse at 10% 12%, rgb(169 216 240 / 18%), transparent 30rem),
+    radial-gradient(ellipse at 90% 88%, rgb(245 139 101 / 11%), transparent 32rem),
+    var(--auth-paper);
+  color: var(--auth-ink);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+.auth-tab:focus-visible { position: relative; z-index: 1; }
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body { min-width: 320px; min-height: 100vh; margin: 0; }
+button, a { font: inherit; }
+a { color: inherit; text-decoration: none; }
+button { color: inherit; }
+
+.auth-shell {
+  width: min(1500px, 100%);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 max(5vw, 24px);
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-header {
+  height: 82px;
+  flex: 0 0 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid var(--auth-border);
+}
+
+.auth-brand { display: inline-flex; align-items: center; flex: 0 0 auto; }
+.auth-brand img { display: block; width: 132px; height: auto; }
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: color .2s;
+}
+.back-link:hover { color: #477da0; }
+.back-link svg { width: 18px; height: 18px; }
+
+.auth-main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(360px, .82fr);
+  align-items: center;
+  gap: clamp(38px, 6vw, 92px);
+  padding: 28px 0;
+  min-width: 0;
+}
+
+.auth-card,
+.welcome-panel,
+.auth-tabs,
+.google-panel,
+.google-button-wrap {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.auth-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.auth-tab {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.welcome-panel {
+  height: min(660px, max(480px, calc(100svh - 150px)));
+  min-height: 480px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: clamp(34px, 5vw, 68px);
+  border: 2px solid var(--auth-ink);
+  border-radius: 28px;
+  color: var(--auth-paper);
+  background:
+    radial-gradient(ellipse at 78% 58%, rgb(78 111 160 / 55%), transparent 42%),
+    radial-gradient(circle at 10% 9%, rgb(82 119 163 / 34%), transparent 30%),
+    linear-gradient(140deg, #293550 0%, #202a42 56%, #171f34 100%);
+  box-shadow: 12px 12px 0 var(--auth-ink);
+  isolation: isolate;
+}
+
+.welcome-panel::before,
+.welcome-panel::after {
+  position: absolute;
+  z-index: -1;
+  right: -16%;
+  bottom: -46%;
+  width: min(74%, 470px);
+  aspect-ratio: 1;
+  border: 1px solid rgb(232 239 249 / 13%);
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
+}
+.welcome-panel::after { right: -25%; bottom: -58%; width: min(92%, 580px); opacity: .7; }
+
+.welcome-copy { position: relative; z-index: 2; max-width: 540px; }
+.welcome-kicker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #e0e4ed;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .13em;
+}
+.welcome-kicker span {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  border-radius: 50%;
+  background: var(--auth-coral);
+}
+.welcome-copy h1 {
+  margin: 24px 0 14px;
+  font: 800 clamp(46px, 5vw, 72px)/.98 "Outfit", sans-serif;
+  letter-spacing: -.055em;
+}
+.welcome-copy h1 em { color: var(--auth-coral); font-style: normal; }
+.welcome-copy p {
+  max-width: 410px;
+  margin: 0;
+  color: #d1d7e3;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.mascot-scene {
+  position: absolute;
+  inset: 250px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Escenario de Verbo.
+   Se dimensiona con la MISMA proporcion que el SVG de la mascota
+   (viewBox 240x260 = 12/13) para que quepa entera y no se recorte
+   en pantallas bajas. Antes el iframe tenia alto fijo y el panel,
+   con `overflow: hidden`, cortaba al personaje. */
+.mascot-stage {
+  position: relative;
+  display: grid;
+  place-items: end center;
+  /* El alto disponible manda y el ancho se DERIVA de la proporcion
+     nativa del SVG (240x260). Asi Verbo siempre cabe entero.
+     Si se fijara el ancho con `max-height`, al llegar al tope el
+     ancho no se reduciria y el personaje quedaria deformado. */
+  aspect-ratio: 12 / 13;
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* Resplandor de color detras del personaje */
+.mascot-glow,
+.mascot-ring,
+.mascot-floor {
+  position: absolute;
+  pointer-events: none;
+}
+
+.mascot-glow {
+  bottom: 6%;
+  left: 50%;
+  width: 84%;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(169 216 240 / 42%), rgb(169 216 240 / 10%) 46%, transparent 68%);
+  animation: glow-pulse 4.2s ease-in-out infinite;
+}
+
+/* Anillo giratorio: refuerza la idea de "escucha activa" */
+.mascot-ring {
+  bottom: 18%;
+  left: 50%;
+  width: 56%;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border: 1.5px dashed rgb(169 216 240 / 42%);
+  border-radius: 50%;
+  animation: ring-spin 18s linear infinite;
+}
+
+/* Sombra del suelo: da apoyo y profundidad */
+.mascot-floor {
+  bottom: 4%;
+  left: 50%;
+  width: 44%;
+  height: 15px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgb(9 14 26 / 60%), transparent 72%);
+  animation: floor-breathe 4.2s ease-in-out infinite;
+}
+
+.mascot-frame {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent !important;
+  background-color: transparent !important;
+  color-scheme: light dark;
+}
+
+/* El iframe de Verbo nunca debe pintar caja negra detrás del SVG. */
+.mascot-stage,
+.mascot-scene {
+  background: transparent !important;
+  background-color: transparent !important;
+  color-scheme: light;
+}
+
+/* Ondas de voz animadas: encajan con una app de practica de voz */
+.mascot-waves {
+  position: absolute;
+  bottom: 11%;
+  left: 50%;
+  z-index: 3;
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 26px;
+  transform: translateX(-50%);
+}
+
+/* El alto es fijo; el ritmo se simula con scaleY. Animar `height`
+   forzaria repaint en cada frame (layout + pintado) y eso es
+   precisamente lo que produce el tirón. */
+.mascot-waves span {
+  width: 5px;
+  height: 26px;
+  transform-origin: bottom center;
+  transform: scaleY(.3);
+  border-radius: 3px;
+  background: linear-gradient(to top, var(--auth-coral), var(--auth-blue));
+  animation: wave-bar 1.15s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.mascot-waves span:nth-child(1) { animation-delay: -.9s; }
+.mascot-waves span:nth-child(2) { animation-delay: -.6s; }
+.mascot-waves span:nth-child(3) { animation-delay: -.3s; }
+.mascot-waves span:nth-child(4) { animation-delay: -.15s; }
+.mascot-waves span:nth-child(5) { animation-delay: 0s; }
+.mascot-speech {
+  position: relative;
+  z-index: 3;
+  width: min(270px, 42%);
+  flex: 0 1 auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 13px 16px;
+  border: 1.5px solid var(--auth-ink);
+  border-radius: 16px 16px 16px 4px;
+  color: var(--auth-ink);
+  background: var(--auth-paper);
+  box-shadow: 4px 4px 0 rgb(245 139 101 / 86%);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.45;
+  animation: hello .5s ease-out both;
+}
+.speech-dot {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  margin-top: 4px;
+  border-radius: 50%;
+  background: var(--auth-coral);
+}
+.mascot-spark { position: absolute; z-index: 2; animation: twinkle 2.5s ease-in-out infinite alternate; }
+.mascot-spark-one { right: 14%; bottom: 37%; color: var(--auth-coral); font-size: 27px; }
+.mascot-spark-two { left: 12%; bottom: 22%; color: var(--auth-blue); font-size: 24px; animation-delay: -.8s; }
+.mascot-caption {
+  position: absolute;
+  z-index: 2;
+  bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #c4cbd8;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+.mascot-caption span { width: 6px; height: 6px; border-radius: 50%; background: var(--auth-blue); }
+
+.auth-card {
+  width: 100%;
+  max-width: 460px;
+  justify-self: center;
+  padding: 18px 0;
+}
+.card-mark {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 24px;
+  border: 1.5px solid var(--auth-ink);
+  border-radius: 50%;
+  color: var(--auth-ink);
+  background: var(--auth-blue);
+  box-shadow: 3px 3px 0 var(--auth-ink);
+  font-size: 22px;
+}
+.card-mark span { transform: rotate(-12deg); }
+.card-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 10px;
+  color: #bb6045;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .15em;
+}
+.card-eyebrow > span:first-child { width: 7px; height: 7px; flex: 0 0 7px; border-radius: 50%; background: var(--auth-coral); }
+.auth-card h2 {
+  margin: 0;
+  font: 800 clamp(38px, 4vw, 50px)/1.02 "Outfit", sans-serif;
+  letter-spacing: -.05em;
+}
+.auth-card h2 em { color: #d77756; font-style: normal; }
+.card-intro { margin: 13px 0 26px; color: var(--auth-muted); font-size: 15px; line-height: 1.6; }
+
+.auth-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 5px;
+  border: 1.5px solid var(--auth-ink);
+  border-radius: 999px;
+  background: #ece9df;
+}
+.auth-tab {
+  min-height: 46px;
+  border: 1.5px solid transparent;
+  border-radius: 999px;
+  color: #5b5867;
+  background: transparent;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 800;
+  transition: color .2s, background .2s, transform .2s, box-shadow .2s;
+}
+.auth-tab.is-active {
+  border-color: var(--auth-ink);
+  color: var(--auth-ink);
+  background: #fffefa;
+  box-shadow: 2px 3px 0 var(--auth-ink);
+}
+.auth-tab:hover { transform: translateY(-1px); }
+.auth-tab:focus-visible, .logout-button:focus-visible, a:focus-visible {
+  outline: 3px solid #79b8d9;
+  outline-offset: 3px;
+}
+
+.google-panel { min-height: 106px; padding-top: 22px; }
+.google-button-wrap { width: 100%; min-width: 0; display: flex; justify-content: center; min-height: 48px; }
+#google-button { width: 100%; min-width: 0; min-height: 44px; }
+#google-button iframe { max-width: 100%; }
+.google-placeholder {
+  width: 100%;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 1.5px solid var(--auth-ink);
+  border-radius: 999px;
+  color: var(--auth-ink);
+  background: #fffefa;
+  box-shadow: 3px 4px 0 var(--auth-ink);
+  font-size: 14px;
+  font-weight: 800;
+}
+.google-placeholder[hidden] { display: none; }
+.google-placeholder svg { width: 19px; height: 19px; }
+.google-placeholder:disabled { cursor: not-allowed; opacity: .8; }
+.auth-status { min-height: 18px; margin: 10px 0 0; color: var(--auth-muted); text-align: center; font-size: 12px; line-height: 1.5; }
+.auth-status:empty { display: none; }
+.auth-status.is-error { color: #a93227; }
+
+.setup-notice {
+  display: flex;
+  gap: 10px;
+  margin: 6px 0 0;
+  padding: 11px 13px;
+  border-left: 3px solid var(--auth-coral);
+  border-radius: 0 10px 10px 0;
+  color: #5c5864;
+  background: #f1eee5;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.setup-notice p { margin: 0; }
+.setup-icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fffefa;
+  background: var(--auth-ink);
+  font-size: 11px;
+  font-weight: 900;
+}
+.signed-in-panel { padding: 16px; border: 1.5px solid var(--auth-ink); border-radius: 16px; background: #e5f2f8; text-align: center; }
+.signed-in-panel p { margin: 0 0 12px; color: var(--auth-muted); font-size: 13px; }
+.signed-in-panel p strong { color: var(--auth-ink); }
+.continue-link { display: inline-flex; align-items: center; gap: 9px; color: #286c50; font-size: 14px; font-weight: 900; }
+.logout-button { display: block; margin: 12px auto 0; padding: 4px 8px; border: 0; color: var(--auth-muted); background: transparent; cursor: pointer; font-size: 12px; }
+
+.privacy-note { display: flex; align-items: center; justify-content: center; gap: 9px; margin-top: 12px; color: #5e6070; font-size: 12px; font-weight: 600; }
+.privacy-note svg { width: 16px; height: 16px; flex: 0 0 16px; color: #568267; }
+.account-note { max-width: 360px; margin: 14px auto 0; color: #85818a; text-align: center; font-size: 11px; line-height: 1.6; }
+
+.auth-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid var(--auth-border);
+  color: #777382;
+  font-size: 11px;
+  font-weight: 700;
+}
+.auth-footer span:first-child { color: var(--auth-ink); letter-spacing: .1em; }
+
+@keyframes hello {
+  from { opacity: 0; transform: translateY(7px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes twinkle {
+  to { transform: translateY(-7px) rotate(14deg); }
+}
+@keyframes glow-pulse {
+  50% { opacity: .6; transform: translateX(-50%) scale(1.09); }
+}
+@keyframes ring-spin {
+  to { transform: translateX(-50%) rotate(360deg); }
+}
+@keyframes floor-breathe {
+  50% { transform: translateX(-50%) scale(.86); opacity: .7; }
+}
+@keyframes wave-bar {
+  from { transform: scaleY(.3); opacity: .55; }
+  to { transform: scaleY(1); opacity: 1; }
+}
+
+@media (max-width: 900px) {
+  .auth-main { grid-template-columns: minmax(0, 1fr) minmax(320px, .9fr); gap: 34px; }
+  .welcome-panel { padding: 36px; }
+  .welcome-copy h1 { font-size: clamp(42px, 5vw, 56px); }
+  .welcome-copy p { font-size: 14px; }
+  .mascot-scene { top: 250px; }
+  .mascot-speech { width: min(220px, 44%); }
+  .auth-card { max-width: 420px; }
+}
+
+@media (max-width: 720px) {
+  .auth-shell { padding-inline: 20px; }
+  .auth-header { height: 70px; flex-basis: 70px; }
+  .auth-brand img { width: 116px; }
+  .back-link { font-size: 12px; }
+  .auth-main { display: flex; flex-direction: column; align-items: stretch; gap: 34px; padding: 20px 0 34px; }
+  .welcome-panel { width: 100%; height: 440px; min-height: 440px; padding: 27px; border-radius: 24px; box-shadow: 7px 7px 0 var(--auth-ink); }
+  .welcome-copy h1 { margin: 18px 0 10px; font-size: clamp(42px, 10vw, 58px); }
+  .welcome-copy p { max-width: 340px; font-size: 13px; }
+  .mascot-scene {
+    top: 215px;
+    inset-inline: 0;
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    justify-items: center;
+  }
+  /* En movil se limita el alto del escenario; el ancho se deriva
+     de la proporcion nativa, asi Verbo nunca se recorta. */
+  .mascot-stage { height: 100%; max-width: 235px; }
+  .mascot-speech {
+    position: relative;
+    top: auto;
+    right: auto;
+    grid-row: 1;
+    justify-self: end;
+    width: min(235px, 72%);
+    margin: 0 6% 4px 0;
+    padding: 10px 13px;
+    font-size: 11px;
+  }
+  .mascot-stage { grid-row: 2; }
+  .mascot-glow,
+  .mascot-ring,
+  .mascot-floor,
+  .mascot-waves,
+  .mascot-spark,
+  .mascot-caption { display: none; }
+  .auth-card { width: min(100%, 470px); max-width: none; align-self: center; padding: 0 8px; }
+  .card-mark { margin-bottom: 19px; }
+  .auth-card h2 { font-size: 42px; }
+  .card-intro { margin: 11px 0 21px; }
+  .auth-footer { padding: 14px 0; font-size: 10px; }
+}
+
+@media (max-width: 390px) {
+  .auth-shell { padding-inline: 15px; }
+  .welcome-panel { height: 430px; min-height: 430px; padding: 23px; }
+  .welcome-copy h1 { font-size: 42px; }
+  .welcome-copy p { max-width: 280px; font-size: 12px; }
+  .mascot-scene { top: 220px; }
+  .mascot-stage { height: 100%; max-width: 215px; }
+  .mascot-waves { gap: 4px; height: 22px; }
+  .mascot-waves span { width: 4px; height: 22px; }
+  .mascot-speech { right: 5%; width: 70%; }
+  .mascot-caption { bottom: 14px; }
+  .auth-card { padding-inline: 4px; }
+  .auth-card h2 { font-size: 38px; }
+  .google-panel { padding-top: 19px; }
+  .auth-footer { flex-direction: column; align-items: center; }
+}
+
+@media (min-width: 721px) and (max-height: 700px) {
+  .auth-header { height: 62px; flex-basis: 62px; }
+  .auth-main { gap: clamp(30px, 5vw, 68px); padding: 12px 0; }
+  .welcome-panel { height: max(420px, calc(100svh - 134px)); min-height: 420px; padding: 34px; }
+  .welcome-copy h1 { margin: 18px 0 10px; font-size: clamp(42px, 4.8vw, 58px); }
+  .welcome-copy p { max-width: 370px; font-size: 14px; }
+  .mascot-scene { top: 245px; }
+  .mascot-stage { height: 100%; max-width: 260px; }
+  .mascot-speech { width: min(280px, 48%); padding: 11px 14px; }
+  .mascot-caption { bottom: 14px; }
+  .auth-card { padding-block: 4px; }
+  .card-mark { width: 38px; height: 38px; margin-bottom: 13px; }
+  .auth-card h2 { font-size: 38px; }
+  .card-intro { margin: 7px 0 14px; font-size: 14px; }
+  .auth-tabs .auth-tab { min-height: 40px; }
+  .google-panel { min-height: 82px; padding-top: 14px; }
+  .setup-notice { font-size: 11px; }
+  .privacy-note { margin-top: 6px; font-size: 11px; }
+  .account-note { margin-top: 7px; font-size: 10px; }
+  .auth-footer { padding: 11px 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+  .mascot-glow,
+  .mascot-ring,
+  .mascot-floor,
+  .mascot-waves span { animation: none !important; }
+}
+
+/* ============================================================
+   Touch y movimiento (movil / tableta / PC)
+   ============================================================ */
+
+/* Hover solo con puntero real */
+@media (hover: hover) and (pointer: fine) {
+  .back-link:hover,
+  .auth-brand:hover { will-change: transform; }
+}
+
+/* Feedback tactil, sin estado pegajoso */
+@media (hover: none) {
+  .back-link:active,
+  .auth-brand:active { transform: scale(.96); }
+  .logout-button:active { transform: scale(.98); }
+}
+
+/* Objetivos tactiles de 44px: pestanas y boton de sesion.
+   El boton de Google (GIS) se controla aparte para no romper
+   el iframe que la API de Google inyecta. */
+@media (hover: none), (max-width: 760px) {
+  .auth-tab { min-height: var(--touch-target, 44px); }
+  .logout-button { min-height: var(--touch-target, 44px); }
+  .auth-tab,
+  .logout-button { -webkit-tap-highlight-color: transparent; }
+}
+
+/* Las piezas del escenario se animan con transform: promoverlas
+   a GPU evita tirones en movil. Solo estos elementos, no todo. */
+.mascot-glow,
+.mascot-ring,
+.mascot-floor,
+.mascot-waves span,
+.mascot-spark,
+.mascot-speech {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}

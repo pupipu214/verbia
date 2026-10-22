@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Simula una clase con dos alumnos de IA (Leonardo y Luis) y practica tu voz como profesor." />
+  <title>Simulación — VerbIA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Figtree:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/verbia.css" />
+  <link rel="stylesheet" href="css/practicar.css" />
+  <link rel="stylesheet" href="css/simulacion.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <script src="js/navigation.js" defer></script>
+  <script src="js/simulacion.js?v=20261020-3" defer></script>
+  <script src="js/theme.js" defer></script>
+</head>
+<body class="practice-page simulation-page">
+  <div class="site-shell">
+    <input class="nav-toggle" id="sim-nav-toggle" type="checkbox" aria-controls="sim-navigation" aria-expanded="false" aria-label="Abrir menú" />
+    <header class="practice-header">
+      <a class="wordmark" href="index.html#inicio" aria-label="Verbai, ir al inicio">
+        <img class="brand-logo" src="static/img/verbai-logo-final.svg" alt="Verbai" />
+      </a>
+      <nav class="practice-nav" id="sim-navigation" aria-label="Navegación">
+        <a href="personajes.html">Galería</a>
+        <a href="constructor.html">Constructor</a>
+        <a href="practicar.html">Practicar</a>
+        <span aria-current="page">Simulación</span>
+        <a href="analisis.html">Análisis</a>
+        <a href="perfil.html">Mi perfil</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" title="Activar modo oscuro">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.5 8.5 0 1 0 20.5 14.2Z" /></svg>
+      </button>
+      <label class="icon-button practice-menu-button" for="sim-nav-toggle" aria-label="Abrir o cerrar el menú">
+        <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16" /><path d="M4 12h16" /><path d="M4 18h16" /></svg>
+        <svg class="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+      </label>
+      <a class="practice-exit" href="personajes.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6" /><path d="M9 12h12" /></svg>
+        Salir de la simulación
+      </a>
+    </header>
+
+    <main class="practice-layout" id="main-content">
+      <aside class="practice-sidebar" aria-label="Detalles de la simulación">
+        <div class="practice-heading">
+          <span class="practice-kicker"><span class="practice-kicker-dot"></span> SIMULACIÓN EN VIVO</span>
+          <h1>Da clase a<br /><em>dos alumnos.</em></h1>
+          <p>Eres el profesor. Leonardo y Luis te escuchan, preguntan y reaccionan entre ellos, cada uno con su propia voz.</p>
+        </div>
+
+        <span class="character-picker-label">TU AULA</span>
+        <div class="duo-roster">
+          <div class="duo-mini" data-mini="leonardo">
+            <span class="duo-mini-avatar"><img src="Imagenes/Leonardo.jpg" alt="Retrato de Leonardo Ríos" /></span>
+            <span class="duo-mini-copy">
+              <strong>Leonardo Ríos</strong>
+              <small>Alumno de matemáticas</small>
+            </span>
+          </div>
+          <div class="duo-mini" data-mini="luis">
+            <span class="duo-mini-avatar"><img src="Imagenes/Luis.jpg" alt="Retrato de Luis" /></span>
+            <span class="duo-mini-copy">
+              <strong>Luis</strong>
+              <small>Alumno de informática</small>
+            </span>
+          </div>
+        </div>
+
+        <section class="practice-info-card practice-description" aria-labelledby="description-title">
+          <h2 id="description-title">EL ESCENARIO</h2>
+          <p id="character-description">Explica un tema (mates o programación) y observa cómo cada alumno reacciona con su propia duda. Pueden discrepar entre ellos: corrígelos a los dos.</p>
+        </section>
+
+        <section class="practice-info-card practice-rubric" aria-labelledby="rubric-title">
+          <h2 id="rubric-title">EN QUÉ ENFOCARTE</h2>
+          <ul id="rubric-list"></ul>
+        </section>
+
+        <p class="practice-privacy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2" /><path d="M8 10V7a4 4 0 0 1 8 0v3" /></svg>
+          El audio se envía a transcripción al terminar de grabar; no se conserva el archivo.
+        </p>
+      </aside>
+
+      <section class="practice-workspace" aria-label="Sala de simulación">
+        <div class="practice-scene" id="practice-scene" data-state="ready">
+          <div class="scene-glow" aria-hidden="true"></div>
+          <div class="scene-topline">
+            <span class="scene-badge"><span></span><span id="scene-status">Aula lista</span></span>
+            <span class="scene-session-label">SIMULACIÓN DE AULA <span aria-hidden="true">✳</span></span>
+          </div>
+
+          <div class="duo-students">
+            <div class="duo-student" id="duo-leonardo" data-student="leonardo">
+              <div class="scene-portrait">
+                <img src="Imagenes/Leonardo.jpg" alt="Leonardo Ríos" />
+                <span class="portrait-live" aria-label="Alumno Leonardo"></span>
+              </div>
+              <div class="scene-character-label">
+                <strong>Leonardo Ríos</strong>
+                <span>Alumno de matemáticas</span>
+              </div>
+            </div>
+            <div class="duo-student" id="duo-luis" data-student="luis">
+              <div class="scene-portrait">
+                <img src="Imagenes/Luis.jpg" alt="Luis" />
+                <span class="portrait-live" aria-label="Alumno Luis"></span>
+              </div>
+              <div class="scene-character-label">
+                <strong>Luis</strong>
+                <span>Alumno de informática</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="scene-center">
+            <div class="sound-wave" id="sound-wave" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <p class="scene-prompt" id="scene-prompt">El aula está preparada.<br /><strong>Cuando quieras, empieza la clase.</strong></p>
+            <div class="conversation-log" id="conversation-log" role="log" aria-live="polite" aria-relevant="additions"></div>
+            <p class="scene-hint" id="scene-hint">Explica un concepto con calma: los alumnos te interrumpirán con sus dudas.</p>
+          </div>
+
+
+          <div class="scene-bottom">
+            <span class="scene-pill timer-pill" aria-label="Tiempo de simulación">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8" /><path d="M12 9v4l2.5 1.5M9 2h6" /></svg>
+              <span id="practice-timer">00:00</span>
+            </span>
+            <span class="scene-pill"><span aria-hidden="true">ES</span> Español</span>
+            <span class="scene-pill mic-pill" id="mic-indicator" aria-live="polite">
+              <span class="mic-indicator-dot"></span><span id="mic-status">Micrófono apagado</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="practice-controls" aria-label="Controles de la simulación">
+          <button class="round-control" id="tips-button" type="button" aria-label="Ver consejo para la simulación" title="Ver un consejo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M9.8 9a2.3 2.3 0 1 1 3.9 1.6c-1 .9-1.7 1.2-1.7 2.9M12 17h.01" /></svg>
+          </button>
+          <button class="round-control" id="share-button" type="button" aria-label="Copiar enlace de esta simulación" title="Copiar enlace">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4h4v4M20 4l-7 7M8 20H4v-4M4 20l7-7" /></svg>
+          </button>
+          <button class="start-button" id="start-button" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 10 6-10 6z" /></svg>
+            <span>Empezar simulación</span>
+          </button>
+        </div>
+
+        <div class="practice-transport" aria-label="Control de la simulación">
+          <button class="transport-button pause-button" id="pause-button" type="button" disabled aria-label="Pausar simulación" title="Pausar simulación">
+            <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5h4v14H7zM15 5h4v14h-4z" /></svg>
+            <svg class="resume-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m8 5 12 7-12 7z" /></svg>
+          </button>
+          <button class="transport-button finish-button" id="finish-button" type="button" disabled aria-label="Finalizar simulación" title="Finalizar simulación">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2" /></svg>
+          </button>
+          <button class="transport-button microphone-button" id="microphone-button" type="button" aria-label="Grabar y enviar voz" title="Grabar y enviar voz" disabled>
+            <svg class="mic-on-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3" /><path d="M5 10a7 7 0 0 0 14 0M12 17v5m-4 0h8" /></svg>
+            <svg class="mic-off-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 3 18 18M9 9v3a3 3 0 0 0 5.1 2.1M15 9V5a3 3 0 0 0-5.8-1M5 10a7 7 0 0 0 12 4.9M19 10a7 7 0 0 1-1 3.5M12 17v5m-4 0h8" /></svg>
+          </button>
+        </div>
+        <p class="practice-feedback" id="practice-feedback" role="status" aria-live="polite">Conectando con el servidor…</p>
+      </section>
+    </main>
+  </div>
+  <div class="toast-stack" id="toast-stack" aria-live="polite" aria-atomic="false"></div>
+</body>
+</html>
+

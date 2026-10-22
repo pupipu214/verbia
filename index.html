@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VerbIA — Entrena tu voz con confianza</title>
+  <meta name="description" content="Practica conversaciones con personajes de IA en español y descubre cómo mejorar tu claridad, ritmo y pausas." />
+  <meta property="og:title" content="VerbIA — Entrena tu voz con confianza" />
+  <meta property="og:description" content="Practica conversaciones con personajes de IA en español y descubre cómo mejorar tu claridad, ritmo y pausas." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&family=Figtree:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/verbia.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/home-auth.css" />
+  <script src="js/navigation.js" defer></script>
+  <script src="js/theme.js" defer></script>
+  <script src="js/home-auth.js" defer></script>
+</head>
+<body>
+  <div class="site-shell">
+    <!-- casilla del menú móvil: debe ir antes de la cabecera -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" />
+
+    <header class="site-header">
+      <a class="wordmark" href="#inicio" aria-label="Verbai, ir al inicio">
+        <img class="brand-logo" src="static/img/verbai-logo-final.svg" alt="Verbai" />
+      </a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
+        <a href="#flujo">Cómo funciona</a>
+        <a href="analisis.html">Análisis</a>
+        <a href="historial.html">Historial</a>
+        <a href="personajes.html">Personajes</a>
+        <a href="constructor.html">Constructor</a>
+        <a href="perfil.html">Mi perfil</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" title="Activar modo oscuro">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.5 8.5 0 1 0 20.5 14.2Z" /></svg>
+        </button>
+        <a class="home-account-link" href="/login" data-home-account>Iniciar sesión</a>
+        <a class="btn btn-solid header-cta" href="personajes.html">Explorar personajes
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+        </a>
+        <label class="icon-button" for="nav-toggle" aria-label="Abrir o cerrar el menú">
+          <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16" /><path d="M4 12h16" /><path d="M4 18h16" /></svg>
+          <svg class="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+        </label>
+      </div>
+    </header>
+
+    <main>
+      <!-- ============ BANNER ============ -->
+      <section class="hero" id="inicio">
+        <div class="hero-noise" aria-hidden="true"></div>
+        <div class="hero-inner">
+          <div class="hero-content">
+            <div class="eyebrow hero-eyebrow"><span class="signal-dot"></span> TU VOZ TIENE ALGO QUE DECIR</div>
+            <h1>Habla<br /><span>sin miedo</span><span class="hero-punctuation">.</span></h1>
+            <p>Conéctate y habla con seguridad. Practica conversaciones reales con personajes de IA y descubre todo lo que tu voz puede hacer.</p>
+            <div class="hero-buttons">
+              <a class="btn btn-solid" href="personajes.html">Empezar a explorar
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+              </a>
+              <a class="btn btn-outline hero-secondary" href="#flujo">Cómo funciona
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14" /><path d="m19 12-7 7-7-7" /></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-label="Personajes con quienes puedes practicar">
+            <div class="hero-halo" aria-hidden="true"></div>
+            <div class="hero-photo hero-photo-back"><img src="imagenes/marcos.jpg" alt="Marcos Díaz" /></div>
+            <div class="hero-photo hero-photo-main"><img src="Imagenes/Luis.jpg" alt="Luis, alumno de informática" /></div>
+            <div class="hero-sticker hero-sticker-top" aria-hidden="true">¡TÚ PUEDES!</div>
+            <div class="hero-sticker hero-sticker-bottom" aria-hidden="true">
+              <div class="sound-wave"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            </div>
+            <span class="hero-asterisk" aria-hidden="true">✳</span>
+          </div>
+        </div>
+
+        <div class="hero-footer">
+          <span>ENTRENAMIENTO DE VOZ CON IA · EN ESPAÑOL</span>
+          <span>DESLIZA PARA DESCUBRIR
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14" /><path d="m19 12-7 7-7-7" /></svg>
+          </span>
+        </div>
+      </section>
+
+      <!-- ============ CINTA ============ -->
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker-track">
+          <span>HABLA CLARO <b>✳</b> HABLA FUERTE <b>✳</b> HABLA COMO TÚ <b>✳</b> </span>
+          <span>HABLA CLARO <b>✳</b> HABLA FUERTE <b>✳</b> HABLA COMO TÚ <b>✳</b> </span>
+          <span>HABLA CLARO <b>✳</b> HABLA FUERTE <b>✳</b> HABLA COMO TÚ <b>✳</b> </span>
+          <span>HABLA CLARO <b>✳</b> HABLA FUERTE <b>✳</b> HABLA COMO TÚ <b>✳</b> </span>
+        </div>
+      </div>
+
+      <!-- ============ LOS TRES PASOS ============ -->
+      <section id="flujo" class="section-wrap flow-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">ASÍ DE SIMPLE / 01</p>
+            <h2>Tu voz, en<br /><em>movimiento.</em></h2>
+          </div>
+          <p class="section-intro">Tres pasos para transformar una conversación difícil en una oportunidad para brillar.</p>
+        </div>
+
+        <div class="flow-grid">
+          <article class="flow-item flow-one">
+            <span class="flow-number">01</span>
+            <div class="flow-object flow-object-one" aria-hidden="true">✳</div>
+            <div>
+              <h3>Elige un rol</h3>
+              <p>Reclutador, médico o cliente enfadado. Cada personaje te plantea un reto distinto.</p>
+            </div>
+            <svg class="flow-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+          </article>
+
+          <article class="flow-item flow-two">
+            <span class="flow-number">02</span>
+            <div class="sound-wave flow-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <div>
+              <h3>Conversa</h3>
+              <p>Habla en voz alta. El personaje te responde y la conversación toma vida.</p>
+            </div>
+            <svg class="flow-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+          </article>
+
+          <article class="flow-item flow-three">
+            <span class="flow-number">03</span>
+            <div class="flow-object flow-object-three" aria-hidden="true"><span>92</span><small>%</small></div>
+            <div>
+              <h3>Analiza</h3>
+              <p>Descubre cómo sonaste: claridad, ritmo, pausas y consejos para mejorar.</p>
+            </div>
+            <svg class="flow-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ PERSONAJES ============ -->
+      <section id="personajes" class="characters-section">
+        <div class="section-wrap">
+          <div class="section-heading characters-heading">
+            <div>
+              <p class="eyebrow">ELIGE TU ESCENARIO / 02</p>
+              <h2>Conoce a tu<br /><em>próximo reto.</em></h2>
+            </div>
+            <p class="section-intro">Distintas voces. Distintas situaciones. Una versión más segura de ti en cada conversación.</p>
+          </div>
+
+          <div class="character-grid">
+            <a class="character-card character-luis" href="personajes.html#luis" aria-label="Ver a Luis, alumno de informática, en la galería">
+              <div class="character-image">
+                <img src="Imagenes/Luis.jpg" alt="Retrato de Luis" loading="lazy" />
+                <span class="character-index">01 / INFORMÁTICA</span>
+              </div>
+              <div class="character-info">
+                <div>
+                  <h3>Luis</h3>
+                  <p>Luis, alumno de informática, te pide ayuda con sus dudas de programación.</p>
+                </div>
+                <span class="character-arrow" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                </span>
+              </div>
+            </a>
+
+            <a class="character-card character-marcos" href="personajes.html#marcos" aria-label="Ver a Marcos Díaz en la galería">
+              <div class="character-image">
+                <img src="imagenes/marcos.jpg" alt="Retrato de Marcos Díaz" loading="lazy" />
+                <span class="character-index">02 / CLIENTE</span>
+              </div>
+              <div class="character-info">
+                <div>
+                  <h3>Marcos Díaz</h3>
+                  <p>Calma una queja urgente sin perder la compostura ni la empatía.</p>
+                </div>
+                <span class="character-arrow" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                </span>
+              </div>
+            </a>
+
+            <a class="character-card character-nova" href="personajes.html#nova" aria-label="Ver a Dra. Nova en la galería">
+              <div class="character-image">
+                <img src="imagenes/nova.jpg" alt="Retrato de Dra. Nova" loading="lazy" />
+                <span class="character-index">03 / CIENCIA</span>
+              </div>
+              <div class="character-info">
+                <div>
+                  <h3>Dra. Nova</h3>
+                  <p>Explora la ciencia con preguntas guiadas y claras.</p>
+                </div>
+                <span class="character-arrow" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                </span>
+              </div>
+            </a>
+          </div>
+          <div class="characters-gallery-cta">
+            <a class="btn btn-outline" href="personajes.html">Ver toda la galería
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ ANÁLISIS ============ -->
+      <section id="analisis" class="analysis-section section-wrap">
+        <div class="analysis-copy">
+          <p class="eyebrow">EL RESULTADO / 03</p>
+          <h2>No solo hables.<br /><em>Escúchate.</em></h2>
+          <p>Después de cada conversación, mira dónde brillaste y qué puedes mejorar para la próxima vez.</p>
+          <a class="analysis-link" href="analisis.html">Ver análisis por sesiones <span aria-hidden="true">↗</span></a>
+          <div class="analysis-flower" aria-hidden="true"></div>
+        </div>
+
+        <div class="analysis-display">
+          <div class="analysis-top">
+            <span>EJEMPLO DE ANÁLISIS</span>
+            <div class="sound-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          </div>
+
+          <div class="metrics">
+            <div class="metric">
+              <div class="metric-label"><span>Claridad</span><strong>92%</strong></div>
+              <div class="metric-track"><span class="metric-fill metric-clarity"></span></div>
+            </div>
+            <div class="metric">
+              <div class="metric-label"><span>Ritmo</span><strong>78%</strong></div>
+              <div class="metric-track"><span class="metric-fill metric-rhythm"></span></div>
+            </div>
+            <div class="metric">
+              <div class="metric-label"><span>Pausas</span><strong>64%</strong></div>
+              <div class="metric-track"><span class="metric-fill metric-pauses"></span></div>
+            </div>
+          </div>
+
+          <div class="analysis-tip"><span>✳</span><p>Redujiste la muletilla “eh” un 60% respecto a tu sesión anterior.</p></div>
+        </div>
+      </section>
+
+      <!-- ============ CIERRE ============ -->
+      <section class="end-section home-end-section">
+        <div class="end-inner">
+          <div class="eyebrow">TU PRÓXIMA CONVERSACIÓN EMPIEZA AQUÍ</div>
+          <h2>Es hora de<br /><em>hacerte oír.</em></h2>
+          <a class="btn btn-dark" href="personajes.html">Ver personajes
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+          </a>
+          <div class="end-sun" aria-hidden="true">✳</div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="wordmark" href="#inicio" aria-label="Verbai, ir al inicio"><img class="brand-logo" data-dark-background src="static/img/verbai-logo-dark.svg" alt="Verbai" /></a>
+      <span>Entrena tu voz, no tu guion.</span>
+      <a href="#inicio">Volver arriba ↑</a>
+    </footer>
+  </div>
+</body>
+</html>

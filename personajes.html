@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personajes — VerbIA</title>
+  <meta name="description" content="Explora todos los personajes de IA con los que puedes practicar en VerbIA." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&family=Figtree:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/verbia.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <script src="js/navigation.js" defer></script>
+  <script src="js/personajes.js" defer></script>
+  <script src="js/theme.js" defer></script>
+</head>
+<body>
+  <div class="site-shell">
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-controls="site-nav" aria-expanded="false" />
+
+    <header class="site-header">
+      <a class="wordmark" href="index.html#inicio" aria-label="Verbai, ir al inicio">
+        <img class="brand-logo" src="static/img/verbai-logo-final.svg" alt="Verbai" />
+      </a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
+        <a href="index.html#flujo">Cómo funciona</a>
+        <a href="analisis.html">Análisis</a>
+        <a href="historial.html">Historial</a>
+        <a href="personajes.html" class="active" aria-current="page">Personajes</a>
+        <a href="constructor.html">Constructor</a>
+        <a href="perfil.html">Mi perfil</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" title="Activar modo oscuro">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.5 8.5 0 1 0 20.5 14.2Z" /></svg>
+        </button>
+        <a class="btn btn-solid header-cta" href="#personajes-list">Explorar personajes
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+        </a>
+        <label class="icon-button" for="nav-toggle" aria-label="Abrir o cerrar el menú">
+          <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16" /><path d="M4 12h16" /><path d="M4 18h16" /></svg>
+          <svg class="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+        </label>
+      </div>
+    </header>
+
+    <main>
+      <!-- ============ BANNER ============ -->
+      <section class="hero-characters">
+        <div class="hero-characters-bg" aria-hidden="true">
+          <span class="bg-shape shape-1"></span>
+          <span class="bg-shape shape-2"></span>
+          <span class="bg-shape shape-3"></span>
+        </div>
+
+        <div class="hero-characters-inner">
+          <div class="hero-characters-content">
+            <div class="eyebrow hero-characters-eyebrow"><span class="signal-dot"></span> GALERÍA DE PERSONAJES</div>
+            <h1>Tu elenco de<br /><span>voces.</span></h1>
+            <p>Cada personaje es un escenario distinto. Elige tu reto, practica sin miedo y descubre de lo que tu voz es capaz.</p>
+            <div class="hero-characters-meta">
+              <div class="meta-item"><strong>07</strong><span>Personajes</span></div>
+              <div class="meta-divider" aria-hidden="true"></div>
+              <div class="meta-item"><strong>03</strong><span>Niveles</span></div>
+              <div class="meta-divider" aria-hidden="true"></div>
+              <div class="meta-item"><strong>∞</strong><span>Conversaciones</span></div>
+            </div>
+          </div>
+
+          <div class="hero-characters-visual" aria-hidden="true">
+            <div class="visual-ring"></div>
+            <div class="visual-avatar avatar-a"><img src="Imagenes/Luis.jpg" alt="" /></div>
+            <div class="visual-avatar avatar-b"><img src="imagenes/nova.jpg" alt="" /></div>
+            <div class="visual-avatar avatar-c"><img src="imagenes/marcos.jpg" alt="" /></div>
+            <div class="visual-spark">✳</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ FILTROS ============ -->
+      <section class="filters-bar" id="personajes-list">
+        <div class="section-wrap filters-inner">
+          <span class="filters-label">Filtrar por:</span>
+          <div class="filter-chips" role="group" aria-label="Filtrar personajes por dificultad">
+            <button class="chip chip-active" type="button" data-difficulty="all" aria-pressed="true">Todos</button>
+            <button class="chip" type="button" data-difficulty="easy" aria-pressed="false">Fácil</button>
+            <button class="chip" type="button" data-difficulty="medium" aria-pressed="false">Intermedio</button>
+            <button class="chip" type="button" data-difficulty="hard" aria-pressed="false">Difícil</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MIS CREACIONES (Constructor) ============ -->
+      <section class="characters-wave-section" id="mis-creaciones" hidden>
+        <div class="category-header">
+          <span class="category-kicker">Tus personajes</span>
+          <h2 class="category-title">Mis creaciones</h2>
+          <p class="category-desc">Personajes que creaste en el Constructor. Pulsa Practicar para hablar con ellos.</p>
+        </div>
+        <div class="section-wrap">
+          <div id="custom-characters-grid"></div>
+        </div>
+      </section>
+
+      <!-- ============ BLOQUE 1: ESTUDIOS ============ -->
+      <section class="characters-wave-section">
+        <div class="category-header">
+          <span class="category-kicker">01 — Práctica académica</span>
+          <h2 class="category-title">Estudios</h2>
+          <p class="category-desc">Entrenamientos pensados para el aula: entrevistas, exámenes orales, exposiciones y defensas.</p>
+        </div>
+
+        <div class="section-wrap">
+
+          <!-- Personaje 01 -->
+          <article class="wave-character" id="luis">
+            <div class="wave-side wave-left" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="wave-portrait">
+              <img src="Imagenes/Luis.jpg" alt="Retrato de Luis" loading="lazy" />
+              <span class="wave-index">01</span>
+            </div>
+            <div class="wave-side wave-right" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="wave-info">
+              <div class="wave-info-head">
+                <h3>Luis</h3>
+                <span class="character-difficulty difficulty-easy">Fácil</span>
+              </div>
+              <p>Alumno de tu clase de informática: te pide ayuda con sus dudas de programación.</p>
+              <div class="wave-tags">
+                <span>Informática</span><span>Programación</span><span>Aprendizaje</span>
+              </div>
+              <a class="wave-cta" href="practicar.html?personaje=luis">
+                Practicar
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Personaje 02 -->
+          <article class="wave-character" id="nova">
+            <div class="wave-side wave-left" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="wave-portrait">
+              <img src="imagenes/nova.jpg" alt="Retrato de Dra. Nova" loading="lazy" />
+              <span class="wave-index">02</span>
+            </div>
+            <div class="wave-side wave-right" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="wave-info">
+              <div class="wave-info-head">
+                <h3>Dra. Nova</h3>
+                <span class="character-difficulty difficulty-easy">Fácil</span>
+              </div>
+              <p>La Dra. Nova enseña ciencias y conecta los fenómenos naturales con la vida diaria.</p>
+              <div class="wave-tags">
+                <span>Ciencias</span><span>Curiosidad</span><span>Descubrimiento</span>
+              </div>
+              <a class="wave-cta" href="practicar.html?personaje=nova">
+                Practicar
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Personaje 03 -->
+          <article class="wave-character" id="leonardo">
+            <div class="wave-side wave-left" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="wave-portrait">
+              <img src="Imagenes/Leonardo.jpg" alt="Retrato de Leonardo Ríos" loading="lazy" />
+              <span class="wave-index">03</span>
+            </div>
+            <div class="wave-side wave-right" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="wave-info">
+              <div class="wave-info-head">
+                <h3>Leonardo Ríos</h3>
+                <span class="character-difficulty difficulty-easy">Fácil</span>
+              </div>
+              <p>Alumno de tu clase de matemáticas: te pide que resuelvas su problema paso a paso.</p>
+              <div class="wave-tags">
+                <span>Matemáticas</span><span>Ejercicios</span><span>Aprendizaje</span>
+              </div>
+              <a class="wave-cta" href="practicar.html?personaje=leonardo">
+                Practicar
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ============ BLOQUE 2: SIMULACIÓN DE SUCESOS ============ -->
+      <section class="characters-wave-section is-simulation">
+        <div class="category-header">
+          <span class="category-kicker">02 — Práctica real</span>
+          <h2 class="category-title">Simulación de sucesos</h2>
+          <p class="category-desc">Escenarios que simulan situaciones reales: clientes, conflictos, ventas y negociaciones.</p>
+        </div>
+
+        <div class="section-wrap">
+
+          <!-- Personaje 04 -->
+          <article class="wave-character" id="marcos">
+            <div class="wave-side wave-left" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="wave-portrait">
+              <img src="imagenes/marcos.jpg" alt="Retrato de Marcos Díaz" loading="lazy" />
+              <span class="wave-index">04</span>
+            </div>
+            <div class="wave-side wave-right" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="wave-info">
+              <div class="wave-info-head">
+                <h3>Marcos Díaz</h3>
+                <span class="character-difficulty difficulty-hard">Difícil</span>
+              </div>
+              <p>Calma una queja urgente sin perder la compostura ni la empatía.</p>
+              <div class="wave-tags">
+                <span>Cliente</span><span>Empatía</span><span>Negociación</span>
+              </div>
+              <a class="wave-cta" href="practicar.html?personaje=marcos">
+                Practicar
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Personaje 05 -->
+          <article class="wave-character" id="lucia">
+            <div class="wave-side wave-left" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="wave-portrait">
+              <img src="Imagenes/Lucia.jpg" alt="Retrato de Lucía Ferrer" loading="lazy" />
+              <span class="wave-index">05</span>
+            </div>
+            <div class="wave-side wave-right" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="wave-info">
+              <div class="wave-info-head">
+                <h3>Lucía Ferrer</h3>
+                <span class="character-difficulty difficulty-hard">Difícil</span>
+              </div>
+              <p>Te atiende como enfermera: te pregunta por tus síntomas, te tranquiliza y te explica tus cuidados.</p>
+              <div class="wave-tags">
+                <span>Enfermería</span><span>Pacientes</span><span>Empatía</span>
+              </div>
+              <a class="wave-cta" href="practicar.html?personaje=lucia">
+                Practicar
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Personaje 06 -->
+          <article class="wave-character" id="andres">
+            <div class="wave-side wave-left" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="wave-portrait">
+              <img src="imagenes/andres.jpg" alt="Retrato de Andrés Vega" loading="lazy" />
+              <span class="wave-index">06</span>
+            </div>
+            <div class="wave-side wave-right" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="wave-info">
+              <div class="wave-info-head">
+                <h3>Andrés Vega</h3>
+                <span class="character-difficulty difficulty-medium">Intermedio</span>
+              </div>
+              <p>Entrena respuestas para entrevistas laborales y preguntas inesperadas.</p>
+              <div class="wave-tags">
+                <span>Entrevista</span><span>Trabajo</span><span>Comunicación</span>
+              </div>
+              <a class="wave-cta" href="practicar.html?personaje=andres">
+                Practicar
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Personaje 07 -->
+          <article class="wave-character" id="aula">
+            <div class="wave-side wave-left" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="wave-portrait">
+              <img src="Imagenes/Leonardo.jpg" alt="Retrato del aula doble" loading="lazy" />
+              <span class="wave-index">07</span>
+            </div>
+            <div class="wave-side wave-right" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="wave-info">
+              <div class="wave-info-head">
+                <h3>Aula doble</h3>
+                <span class="character-difficulty difficulty-medium">Intermedio</span>
+              </div>
+              <p>Da clase a dos alumnos a la vez: Leonardo y Luis te escuchan, preguntan y reaccionan por turnos, cada uno con su voz.</p>
+              <div class="wave-tags">
+                <span>Simulación</span><span>Dos alumnos</span><span>Docencia</span>
+              </div>
+              <a class="wave-cta" href="simulacion.html">
+                Simular
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ============ CIERRE ============ -->
+      <section class="end-section">
+        <div class="end-inner">
+          <div class="eyebrow">¿LISTO PARA TU PRÓXIMO RETO?</div>
+          <h2>Elige tu personaje.<br /><em>Empieza a hablar.</em></h2>
+          <a class="btn btn-dark" href="index.html#inicio">Volver al inicio
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+          </a>
+          <div class="end-sun" aria-hidden="true">✳</div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="wordmark" href="index.html#inicio" aria-label="Verbai, ir al inicio"><img class="brand-logo" data-dark-background src="static/img/verbai-logo-dark.svg" alt="Verbai" /></a>
+      <span>Entrena tu voz, no tu guion.</span>
+      <a href="#">Volver arriba ↑</a>
+    </footer>
+  </div>
+</body>
+</html>
