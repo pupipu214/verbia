@@ -114,21 +114,33 @@
   width: 100%;
   height: 100%;
   border: 0;
-  background: transparent !important;
+  background: none !important;
   background-color: transparent !important;
   color-scheme: light;
 }
 
-/* En movil los iframes suelen pintar fondo blanco por defecto.
-   Forzamos transparencia absoluta para que el pájaro se funda con el hero. */
-@media (hover: none), (max-width: 760px) {
+/* Elimina cualquier fondo blanco del iframe en todos los contextos (especialmente móvil/Render) */
+.verbo-mascot {
+  background: none !important;
+  background-color: transparent !important;
+}
+.verbo-mascot iframe,
+.verbo-mascot iframe *,
+.verbo-mascot iframe html,
+.verbo-mascot iframe body {
+  background: none !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+@media (hover: none), (max-width: 760px), (orientation: portrait) {
   .verbo-mascot iframe {
-    background: transparent !important;
+    background: none !important;
     background-color: transparent !important;
     border: none !important;
   }
   .verbo-mascot {
-    background: transparent !important;
+    background: none !important;
     background-color: transparent !important;
   }
 }
@@ -136,8 +148,8 @@
 /* En el hero oscuro el documento embebido debe fundirse con el fondo,
    nunca mostrar el rectangulo negro por defecto del iframe. */
 :root[data-theme="dark"] .analysis-hero .verbo-mascot iframe {
-  background: #061a32 !important;
-  background-color: #061a32 !important;
+  background: none !important;
+  background-color: transparent !important;
 }
 
 .analysis-hero-footer {

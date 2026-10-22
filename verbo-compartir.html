@@ -28,7 +28,7 @@
     html.is-embedded,
     html.is-embedded body,
     body.is-embedded {
-      background: transparent !important;
+      background: none !important;
       background-color: transparent !important;
       background-image: none !important;
     }
@@ -36,7 +36,7 @@
     * { box-sizing: border-box; }
     html, body { width: 100%; min-height: 100%; margin: 0; }
     html {
-      background: transparent !important;
+      background: none !important;
       background-color: transparent !important;
     }
     body {
@@ -45,17 +45,22 @@
       min-height: 100svh;
       place-items: center;
       overflow: hidden;
-      background: transparent !important;
+      background: none !important;
       background-color: transparent !important;
       background-image: none !important;
       color: var(--ink);
     }
 
-    /* En movil forzar transparencia absoluta para evitar fondo blanco del iframe */
-    @media (hover: none), (max-width: 760px) {
+    /* Elimina cualquier fondo blanco por defecto del navegador en el documento embebido */
+    * { background: none !important; background-color: transparent !important; }
+    svg, .verbo-svg, .verbo-stage { background: none !important; background-color: transparent !important; fill: none; }
+
+    /* En movil y en todo contexto forzar transparencia absoluta para evitar fondo blanco del iframe */
+    @media (hover: none), (max-width: 760px), (orientation: portrait) {
       html, body {
-        background: transparent !important;
+        background: none !important;
         background-color: transparent !important;
+        background-image: none !important;
       }
     }
 
