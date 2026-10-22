@@ -115,7 +115,22 @@
   height: 100%;
   border: 0;
   background: transparent !important;
+  background-color: transparent !important;
   color-scheme: light;
+}
+
+/* En movil los iframes suelen pintar fondo blanco por defecto.
+   Forzamos transparencia absoluta para que el pájaro se funda con el hero. */
+@media (hover: none), (max-width: 760px) {
+  .verbo-mascot iframe {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+  }
+  .verbo-mascot {
+    background: transparent !important;
+    background-color: transparent !important;
+  }
 }
 
 /* En el hero oscuro el documento embebido debe fundirse con el fondo,

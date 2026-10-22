@@ -51,6 +51,14 @@
       color: var(--ink);
     }
 
+    /* En movil forzar transparencia absoluta para evitar fondo blanco del iframe */
+    @media (hover: none), (max-width: 760px) {
+      html, body {
+        background: transparent !important;
+        background-color: transparent !important;
+      }
+    }
+
     .brand-lockup {
       position: fixed;
       top: 18px;
