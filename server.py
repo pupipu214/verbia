@@ -708,7 +708,8 @@ def authenticate_google(request: Request, req: GoogleCredentialRequest):
 
     google_sub = claims.get("sub")
     email = claims.get("email")
-    name = claims.get("name")
+    full_name = claims.get("name")
+    first_name = (full_name.split()[0] if isinstance(full_name, str) and full_name.split() else "") if full_name else ""
     if (
         not isinstance(google_sub, str)
         or not google_sub
@@ -724,7 +725,7 @@ def authenticate_google(request: Request, req: GoogleCredentialRequest):
             user = Usuario(
                 google_sub=google_sub,
                 email=email.lower(),
-                nombre=name.strip()[:200] if isinstance(name, str) and name.strip() else email,
+                nombre=first_name[:200] if first_name else email,
                 foto_url=claims.get("picture") if isinstance(claims.get("picture"), str) else None,
             )
             db.add(user)
@@ -738,7 +739,7 @@ def authenticate_google(request: Request, req: GoogleCredentialRequest):
                     raise HTTPException(status_code=503, detail="No se pudo crear la cuenta. Inténtalo de nuevo.")
         else:
             user.email = email.lower()
-            user.nombre = name.strip()[:200] if isinstance(name, str) and name.strip() else email
+            user.nombre = first_name[:200] if first_name else email
             user.foto_url = claims.get("picture") if isinstance(claims.get("picture"), str) else None
             db.commit()
 
