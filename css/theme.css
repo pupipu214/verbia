@@ -235,6 +235,64 @@
   color: #f8fafc;
 }
 
+/* Hero section en modo oscuro: fondo azul marino profundo */
+:root[data-theme="dark"] .hero {
+  background:
+    radial-gradient(ellipse at 78% 48%, oklch(0.28 0.08 245 / 0.68), transparent 38%),
+    radial-gradient(circle at 12% 12%, oklch(0.32 0.07 250 / 0.36), transparent 28%),
+    linear-gradient(135deg, #1e293b 0%, #0f172a 56%, #020617 100%);
+}
+
+:root[data-theme="dark"] .hero h1 > span:not(.hero-punctuation) {
+  color: #f59a72;
+}
+
+:root[data-theme="dark"] .hero-punctuation {
+  color: #a8d8e8;
+}
+
+:root[data-theme="dark"] .hero-eyebrow {
+  border-color: #a8d8e8;
+  color: #a8d8e8;
+}
+
+:root[data-theme="dark"] .hero-content > p {
+  color: #cbd5e1;
+}
+
+:root[data-theme="dark"] .hero-secondary {
+  color: #f8fafc;
+  border-color: rgb(226 232 240 / 55%);
+}
+
+:root[data-theme="dark"] .hero-secondary:hover {
+  color: #a8d8e8;
+}
+
+/* Flow items en modo oscuro */
+:root[data-theme="dark"] .flow-one {
+  background: #1e3a5f;
+  border-color: rgb(226 232 240 / 20%);
+}
+
+:root[data-theme="dark"] .flow-two {
+  background: #b45309;
+  border-color: rgb(226 232 240 / 20%);
+}
+
+:root[data-theme="dark"] .flow-three {
+  background: #0d9488;
+  border-color: rgb(226 232 240 / 20%);
+}
+
+:root[data-theme="dark"] .flow-item h3 {
+  color: #f8fafc;
+}
+
+:root[data-theme="dark"] .flow-item p {
+  color: #cbd5e1;
+}
+
 :root[data-theme="dark"] .hero-characters {
   background: linear-gradient(145deg, #172033 0%, #253653 58%, #111827 100%);
 }
@@ -249,6 +307,102 @@
 :root[data-theme="dark"] .characters-section {
   background: #0b1120;
   color: #f1f5f9;
+}
+
+/* Ticker en modo oscuro */
+:root[data-theme="dark"] .ticker b {
+  color: #f59a72;
+}
+
+/* Flow section en modo oscuro */
+:root[data-theme="dark"] .flow-section {
+  background: #0f172a;
+}
+
+:root[data-theme="dark"] .section-heading .eyebrow {
+  color: #f59a72;
+}
+
+:root[data-theme="dark"] .section-heading h2 em {
+  color: #f59a72;
+}
+
+:root[data-theme="dark"] .section-intro {
+  color: #cbd5e1;
+}
+
+/* Analysis section en modo oscuro */
+:root[data-theme="dark"] .analysis-section {
+  background: #0f172a;
+}
+
+:root[data-theme="dark"] .analysis-copy .eyebrow {
+  color: #a8d8e8;
+}
+
+:root[data-theme="dark"] .analysis-copy h1,
+:root[data-theme="dark"] .analysis-copy h2 {
+  color: #f8fafc;
+}
+
+:root[data-theme="dark"] .analysis-copy h1 em,
+:root[data-theme="dark"] .analysis-copy h2 em {
+  color: #f59a72;
+}
+
+:root[data-theme="dark"] .analysis-copy > p {
+  color: #cbd5e1;
+}
+
+:root[data-theme="dark"] .analysis-display {
+  background: #1e3a5f;
+  border-color: rgb(226 232 240 / 20%);
+  box-shadow: 15px 15px 0 rgb(226 232 240 / 0.3);
+}
+
+:root[data-theme="dark"] .analysis-top {
+  border-color: rgb(226 232 240 / 30%);
+  color: #cbd5e1;
+}
+
+:root[data-theme="dark"] .metric-label {
+  color: #cbd5e1;
+}
+
+:root[data-theme="dark"] .metric-label strong {
+  color: #f8fafc;
+}
+
+:root[data-theme="dark"] .metric-track {
+  background: rgb(226 232 240 / 20%);
+}
+
+:root[data-theme="dark"] .analysis-tip {
+  background: #243247;
+  color: #e5e7eb;
+  border-color: rgb(226 232 240 / 15%);
+}
+
+:root[data-theme="dark"] .analysis-tip span {
+  color: #f59a72;
+}
+
+/* End section en modo oscuro */
+:root[data-theme="dark"] .end-inner .eyebrow {
+  color: #a8d8e8;
+}
+
+:root[data-theme="dark"] .end-inner h2 em {
+  color: #f59a72;
+}
+
+:root[data-theme="dark"] .end-inner .btn-dark {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+:root[data-theme="dark"] .end-inner .btn-dark:hover {
+  background: #a8d8e8;
 }
 
 :root[data-theme="dark"] .site-nav,
@@ -409,24 +563,37 @@
 :root[data-theme="dark"] .btn-dark:hover { background: #cbd5e1; }
 :root[data-theme="dark"] .btn-solid { color: #1a1005; }
 
-:root[data-theme="dark"] .character-card,
-:root[data-theme="dark"] .character-info,
-:root[data-theme="dark"] .wave-info,
-:root[data-theme="dark"] .practice-stage-card,
-:root[data-theme="dark"] .practice-rubric,
-:root[data-theme="dark"] .practice-workspace,
-:root[data-theme="dark"] .practice-info-card,
-:root[data-theme="dark"] .analysis-next-inner,
-:root[data-theme="dark"] .history-list,
-:root[data-theme="dark"] .history-card,
-:root[data-theme="dark"] .analysis-metrics,
-:root[data-theme="dark"] .analysis-content,
-:root[data-theme="dark"] .recommendation-panel,
-:root[data-theme="dark"] .transcript-panel,
-:root[data-theme="dark"] .progress-panel {
+:root[data-theme="dark"] .character-card {
   background-color: #1a2538;
   border-color: rgb(226 232 240 / 14%);
   color: #f1f5f9;
+}
+
+:root[data-theme="dark"] .character-image {
+  background: #1e3a5f;
+}
+
+:root[data-theme="dark"] .character-index {
+  background: #1e3a5f;
+  color: #a8d8e8;
+  border-color: rgb(226 232 240 / 30%);
+}
+
+:root[data-theme="dark"] .character-info {
+  background: #1a2538;
+  color: #f1f5f9;
+}
+
+:root[data-theme="dark"] .character-luis .character-info {
+  background: #1e3a5f;
+}
+
+:root[data-theme="dark"] .character-marcos .character-info {
+  background: #b45309;
+}
+
+:root[data-theme="dark"] .character-nova .character-info {
+  background: #0d9488;
 }
 
 :root[data-theme="dark"] .character-info h3,

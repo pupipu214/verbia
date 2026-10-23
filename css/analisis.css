@@ -116,7 +116,7 @@
   border: 0;
   background: none !important;
   background-color: transparent !important;
-  color-scheme: light;
+  color-scheme: none !important;
 }
 
 /* Elimina cualquier fondo blanco del iframe en todos los contextos (especialmente móvil/Render) */
@@ -486,6 +486,23 @@
   .progress-panel { grid-row: 3; }
   .analysis-next-inner { min-height: 340px; padding-top: 58px; }
   .analysis-next-spark { top: -30px; right: -95px; font-size: 350px; }
+  
+  /* Prevenir desbordamiento horizontal en móvil */
+  .analysis-dashboard, .section-wrap {
+    overflow-x: hidden;
+    padding-left: max(5vw, 16px);
+    padding-right: max(5vw, 16px);
+  }
+  
+  /* Asegurar que los filtros no desborden */
+  .session-filters {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+  }
+  .session-filters > span { flex-shrink: 0; margin-right: 8px; }
+  .session-filter { flex-shrink: 0; }
 }
 
 @media (max-width: 460px) {
@@ -496,6 +513,25 @@
   .session-detail { padding: 17px; }
   .analysis-hero-footer { gap: 7px; letter-spacing: .07em; }
   .analysis-hero-footer span { flex: 1; }
+  
+  /* Prevenir desbordamiento en pantallas muy pequeñas */
+  .analysis-dashboard, .section-wrap {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .session-panel, .session-detail, .progress-panel {
+    padding: 15px;
+  }
+  .detail-title-row {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .score-stamp {
+    flex: 0 0 60px;
+    width: 60px;
+    height: 60px;
+  }
+  .score-stamp strong { font-size: 20px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

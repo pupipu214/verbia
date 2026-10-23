@@ -66,6 +66,20 @@ summary { -webkit-tap-highlight-color: transparent; }
   overflow-x: hidden;
   background: var(--paper);
   color: var(--ink);
+  max-width: 100vw;
+}
+
+/* Prevenir desbordamiento horizontal en móvil */
+@media (max-width: 760px) {
+  .site-shell {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+  main {
+    overflow-x: hidden;
+    width: 100%;
+  }
 }
 
 /* ---------- 2. Botones ---------- */
@@ -610,6 +624,24 @@ summary { -webkit-tap-highlight-color: transparent; }
   align-items: stretch;
 }
 
+@media (min-width: 1400px) {
+  .character-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1100px) {
+  .character-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .character-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .character-card {
   display: block;
   color: inherit;
@@ -623,9 +655,12 @@ summary { -webkit-tap-highlight-color: transparent; }
   box-shadow: 10px 10px 0 var(--character-accent, var(--coral));
 }
 
-.character-luis { --character-accent: oklch(0.65 0.16 38); }
-.character-marcos { --character-accent: oklch(0.58 0.21 25); }
-.character-nova { --character-accent: oklch(0.54 0.15 220); }
+.character-luis { --character-accent: oklch(0.42 0.22 155); }
+.character-marcos { --character-accent: oklch(0.62 0.20 25); }
+.character-nova { --character-accent: oklch(0.86 0.12 240); }
+.character-leonardo { --character-accent: oklch(0.82 0.18 85); }
+.character-lucia { --character-accent: oklch(0.88 0.10 210); }
+.character-andres { --character-accent: oklch(0.72 0.18 85); }
 
 .character-image {
   height: 340px;
@@ -683,8 +718,20 @@ summary { -webkit-tap-highlight-color: transparent; }
   border-radius: 50%;
 }
 
-.character-marcos .character-info { background: var(--coral); }
-.character-nova .character-info { background: var(--mint); }
+.character-luis .character-info { background: oklch(0.86 0.06 155); }
+.character-marcos .character-info { background: oklch(0.94 0.045 25); }
+.character-nova .character-info { background: oklch(0.96 0.03 240); }
+.character-leonardo .character-info { background: oklch(0.97 0.05 90); }
+.character-lucia .character-info { background: oklch(0.96 0.03 210); }
+.character-andres .character-info { background: oklch(0.95 0.06 90); }
+
+/* Títulos en modo claro: tono más oscuro del mismo color para legibilidad */
+.character-luis .character-info h3 { color: oklch(0.35 0.18 155); }
+.character-marcos .character-info h3 { color: oklch(0.42 0.20 25); }
+.character-nova .character-info h3 { color: oklch(0.45 0.12 240); }
+.character-leonardo .character-info h3 { color: oklch(0.55 0.18 85); }
+.character-lucia .character-info h3 { color: oklch(0.48 0.10 210); }
+.character-andres .character-info h3 { color: oklch(0.55 0.18 85); }
 
 .characters-gallery-cta { display: flex; justify-content: center; margin-top: 34px; }
 .characters-gallery-cta .btn { color: var(--paper); border-color: oklch(1 0 0 / .55); }
@@ -1359,13 +1406,13 @@ summary { -webkit-tap-highlight-color: transparent; }
 }
 
 .wave-character.is-filtered { display: none; }
-.wave-character#luis { --character-accent: oklch(0.65 0.16 38); }
-.wave-character#nova { --character-accent: oklch(0.54 0.15 220); }
-.wave-character#leonardo { --character-accent: oklch(0.72 0.16 85); }
-.wave-character#marcos { --character-accent: oklch(0.58 0.21 25); }
-.wave-character#lucia { --character-accent: oklch(0.56 0.16 350); }
-.wave-character#andres { --character-accent: oklch(0.52 0.15 135); }
-.wave-character#aula { --character-accent: oklch(0.6 0.13 160); }
+.wave-character#luis { --character-accent: oklch(0.42 0.22 155); }
+.wave-character#nova { --character-accent: oklch(0.86 0.12 240); }
+.wave-character#leonardo { --character-accent: oklch(0.82 0.18 85); }
+.wave-character#marcos { --character-accent: oklch(0.62 0.20 25); }
+.wave-character#lucia { --character-accent: oklch(0.88 0.10 210); }
+.wave-character#andres { --character-accent: oklch(0.72 0.18 85); }
+.wave-character#aula { --character-accent: oklch(0.82 0.18 85); }
 
 /* ---------- Ondas laterales ---------- */
 .wave-side {
@@ -1801,6 +1848,91 @@ summary { -webkit-tap-highlight-color: transparent; }
 :root[data-theme="dark"] .analysis-retroalimentacion {
   background: rgb(26 37 56 / 0.6);
   border-left-color: #94cbed;
+}
+
+/* Personajes en modo oscuro: usan colores dinámicos de sus fotos */
+:root[data-theme="dark"] .character-luis .character-info {
+  background: oklch(0.42 0.22 155);
+  color: #0f172a;
+}
+:root[data-theme="dark"] .character-marcos .character-info {
+  background: oklch(0.62 0.20 25);
+  color: #0f172a;
+}
+:root[data-theme="dark"] .character-nova .character-info {
+  background: oklch(0.86 0.12 240);
+  color: #0f172a;
+}
+:root[data-theme="dark"] .character-leonardo .character-info {
+  background: oklch(0.82 0.18 85);
+  color: #0f172a;
+}
+:root[data-theme="dark"] .character-lucia .character-info {
+  background: oklch(0.88 0.10 210);
+  color: #0f172a;
+}
+:root[data-theme="dark"] .character-andres .character-info {
+  background: oklch(0.72 0.18 85);
+  color: #0f172a;
+}
+
+:root[data-theme="dark"] .character-luis .character-info h3,
+:root[data-theme="dark"] .character-marcos .character-info h3,
+:root[data-theme="dark"] .character-nova .character-info h3,
+:root[data-theme="dark"] .character-leonardo .character-info h3,
+:root[data-theme="dark"] .character-lucia .character-info h3,
+:root[data-theme="dark"] .character-andres .character-info h3 {
+  color: #0f172a;
+}
+
+/* Galería de personajes (personajes.html) en modo oscuro: usa colores dinámicos */
+:root[data-theme="dark"] .wave-character#luis .wave-info {
+  background: oklch(0.42 0.22 155);
+  color: #0f172a;
+}
+:root[data-theme="dark"] .wave-character#nova .wave-info {
+  background: oklch(0.86 0.12 240);
+  color: #0f172a;
+}
+:root[data-theme="dark"] .wave-character#leonardo .wave-info {
+  background: oklch(0.82 0.18 85);
+  color: #0f172a;
+}
+:root[data-theme="dark"] .wave-character#marcos .wave-info {
+  background: oklch(0.62 0.20 25);
+  color: #0f172a;
+}
+:root[data-theme="dark"] .wave-character#lucia .wave-info {
+  background: oklch(0.88 0.10 210);
+  color: #0f172a;
+}
+:root[data-theme="dark"] .wave-character#andres .wave-info {
+  background: oklch(0.72 0.18 85);
+  color: #0f172a;
+}
+:root[data-theme="dark"] .wave-character#aula .wave-info {
+  background: oklch(0.82 0.18 85);
+  color: #0f172a;
+}
+
+:root[data-theme="dark"] .wave-character#luis .wave-info h3,
+:root[data-theme="dark"] .wave-character#nova .wave-info h3,
+:root[data-theme="dark"] .wave-character#leonardo .wave-info h3,
+:root[data-theme="dark"] .wave-character#marcos .wave-info h3,
+:root[data-theme="dark"] .wave-character#lucia .wave-info h3,
+:root[data-theme="dark"] .wave-character#andres .wave-info h3,
+:root[data-theme="dark"] .wave-character#aula .wave-info h3 {
+  color: #0f172a;
+}
+
+:root[data-theme="dark"] .wave-character#luis .wave-info p,
+:root[data-theme="dark"] .wave-character#nova .wave-info p,
+:root[data-theme="dark"] .wave-character#leonardo .wave-info p,
+:root[data-theme="dark"] .wave-character#marcos .wave-info p,
+:root[data-theme="dark"] .wave-character#lucia .wave-info p,
+:root[data-theme="dark"] .wave-character#andres .wave-info p,
+:root[data-theme="dark"] .wave-character#aula .wave-info p {
+  color: #1e293b;
 }
 
 /* --- Accesibilidad: respetar "reducir movimiento" --- */

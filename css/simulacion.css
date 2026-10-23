@@ -22,8 +22,8 @@
   box-shadow: 0 8px 18px oklch(0.55 0.02 255 / .06);
 }
 
-.duo-mini[data-mini="leonardo"] { --student-accent: oklch(0.72 0.16 85); }
-.duo-mini[data-mini="luis"] { --student-accent: oklch(0.65 0.16 38); }
+.duo-mini[data-mini="leonardo"] { --student-accent: oklch(0.82 0.18 85); }
+.duo-mini[data-mini="luis"] { --student-accent: oklch(0.42 0.22 155); }
 
 .duo-mini-avatar {
   width: 48px;
@@ -70,8 +70,8 @@
   align-items: flex-start;
 }
 
-.duo-student[data-student="leonardo"] { --student-accent: oklch(0.72 0.16 85); }
-.duo-student[data-student="luis"] { --student-accent: oklch(0.65 0.16 38); }
+.duo-student[data-student="leonardo"] { --student-accent: oklch(0.82 0.18 85); }
+.duo-student[data-student="luis"] { --student-accent: oklch(0.42 0.22 155); }
 
 .duo-student[data-student="luis"] { align-items: flex-end; }
 .duo-student[data-student="luis"] .scene-character-label {
@@ -102,17 +102,17 @@
 
 /* --- Conversación: cada alumno con su color --- */
 .conversation-message[data-speaker="leonardo"] {
-  border-left: 3px solid oklch(0.72 0.16 85);
+  border-left: 3px solid oklch(0.82 0.18 85);
 }
 .conversation-message[data-speaker="leonardo"] strong {
-  color: oklch(0.45 0.1 85);
+  color: oklch(0.55 0.12 85);
 }
 .conversation-message[data-speaker="luis"] {
-  border-right: 3px solid oklch(0.65 0.16 38);
+  border-right: 3px solid oklch(0.42 0.22 155);
   border-left: none;
 }
 .conversation-message[data-speaker="luis"] strong {
-  color: oklch(0.48 0.12 38);
+  color: oklch(0.52 0.18 155);
 }
 .conversation-message:not([data-speaker]) strong {
   color: oklch(0.35 0.08 255);
@@ -130,13 +130,13 @@
   color: #94a3b8;
 }
 :root[data-theme="dark"] .duo-mini-avatar {
-  background-color: #26364b;
+  background-color: color-mix(in oklch, var(--student-accent) 20%, #26364b);
 }
 :root[data-theme="dark"] .conversation-message[data-speaker="leonardo"] strong {
-  color: oklch(0.78 0.14 85);
+  color: oklch(0.82 0.18 85);
 }
 :root[data-theme="dark"] .conversation-message[data-speaker="luis"] strong {
-  color: oklch(0.75 0.15 38);
+  color: oklch(0.42 0.22 155);
 }
 :root[data-theme="dark"] .conversation-message:not([data-speaker]) strong {
   color: #e2e8f0;

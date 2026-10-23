@@ -7,7 +7,6 @@
   <title>Verbo | Mascota interactiva</title>
   <style>
     :root {
-      color-scheme: light;
       --page: #f5f7fb;
       --ink: #27213a;
       --violet-soft: #eee8ff;
@@ -15,19 +14,32 @@
     }
 
     :root[data-theme="dark"] {
-      color-scheme: dark;
       --page: #0f172a;
       --ink: #f1f5f9;
       --violet-soft: #1e293b;
       --mint-soft: #172033;
     }
 
+    /* MODO EMBEBIDO: eliminar completamente color-scheme para evitar fondo forzado */
+    html.is-embedded {
+      color-scheme: none !important;
+    }
+    html.is-embedded[data-theme="dark"] {
+      color-scheme: none !important;
+    }
+    html.is-embedded, html.is-embedded body {
+      background: transparent !important;
+      background-color: transparent !important;
+      background-image: none !important;
+    }
+    html.is-embedded body {
+      background: transparent !important;
+      background-color: transparent !important;
+    }
+
     /* Verbo flota sin caja: iframe y SVG siempre transparentes. */
     html,
-    html body,
-    html.is-embedded,
-    html.is-embedded body,
-    body.is-embedded {
+    html body {
       background: none !important;
       background-color: transparent !important;
       background-image: none !important;
@@ -53,7 +65,14 @@
 
     /* Elimina cualquier fondo blanco por defecto del navegador en el documento embebido */
     * { background: none !important; background-color: transparent !important; }
-    svg, .verbo-svg, .verbo-stage { background: none !important; background-color: transparent !important; fill: none; }
+    svg, .verbo-svg, .verbo-stage, main {
+      background: none !important;
+      background-color: transparent !important;
+      fill: none;
+    }
+    svg {
+      background-color: transparent !important;
+    }
 
     /* En movil y en todo contexto forzar transparencia absoluta para evitar fondo blanco del iframe */
     @media (hover: none), (max-width: 760px), (orientation: portrait) {
@@ -61,6 +80,12 @@
         background: none !important;
         background-color: transparent !important;
         background-image: none !important;
+      }
+      html.is-embedded {
+        color-scheme: only light !important;
+      }
+      html.is-embedded[data-theme="dark"] {
+        color-scheme: only light !important;
       }
     }
 
@@ -237,9 +262,14 @@
         document.documentElement.dataset.theme = savedTheme;
       }
 
-      if (new URLSearchParams(window.location.search).has('embed')) {
+      const params = new URLSearchParams(window.location.search);
+      if (params.has('embed') || params.has('embed=1')) {
         document.documentElement.classList.add('is-embedded');
         document.body.classList.add('is-embedded');
+
+        // Eliminar completamente color-scheme en modo embebido para evitar fondo del navegador
+        document.documentElement.style.colorScheme = 'none';
+        document.documentElement.style.setProperty('color-scheme', 'none', 'important');
       }
 
       window.addEventListener('storage', function (event) {
@@ -296,3 +326,29 @@
   </script>
 </body>
 </html>
+
+<!--
+========================================
+SNIPPET DE IFRAME PARA LA WEB PADRE
+========================================
+
+Copia este código en tu página principal para embeber Verbo:
+
+<iframe
+  src="verbo-compartir.html?embed"
+  allowtransparency="true"
+  style="
+    width: 340px;
+    height: 368px;
+    border: none;
+    background: transparent !important;
+    background-color: transparent !important;
+  "
+></iframe>
+
+NOTAS:
+- El parámetro ?embed activa el modo embebido (sin logo, transparencia total)
+- allowtransparency="true" garantiza soporte de transparencia en navegadores antiguos
+- Los estilos inline aseguran que no haya capas de fondo heredadas
+- La relación de aspecto del SVG es 12/13 (aprox 0.923), ajusta width/height proporcionalmente
+-->

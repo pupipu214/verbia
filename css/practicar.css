@@ -624,8 +624,8 @@
 }
 
 :root[data-theme="dark"] .practice-scene {
-  background: linear-gradient(145deg, #1b2638 5%, #162235 100%);
-  border-color: color-mix(in oklch, var(--character-accent) 60%, #9ccfe0);
+  background: linear-gradient(145deg, #1b2638 5%, color-mix(in oklch, var(--character-accent-soft) 32%, #162235) 100%);
+  border-color: color-mix(in oklch, var(--character-accent) 75%, #9ccfe0);
 }
 
 :root[data-theme="dark"] .scene-badge,
@@ -650,11 +650,12 @@
 :root[data-theme="dark"] .character-choice[aria-pressed="true"],
 :root[data-theme="dark"] .start-button {
   color: #111827;
-  background: #a8d8e8;
+  background: var(--character-accent);
 }
 
 @media (max-width: 760px) {
   .practice-layout { width: 100%; overflow-x: hidden; }
+  .practice-page { overflow-x: hidden; }
   .practice-sidebar,
   .practice-workspace,
   .practice-scene,
@@ -664,6 +665,17 @@
   .message-send input { min-width: 0; }
   .scene-bottom { width: 100%; max-width: 100%; flex-wrap: wrap; }
   .practice-controls { flex-wrap: wrap; max-width: 100%; }
+  
+  /* Prevenir desbordamiento en el log de conversación */
+  .conversation-log {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  .conversation-message {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
   .practice-controls .start-button { flex: 1 1 180px; max-width: 100%; }
   .practice-transport { max-width: 100%; flex-wrap: wrap; }
 }

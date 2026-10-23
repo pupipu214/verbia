@@ -241,7 +241,7 @@ button { color: inherit; }
   border: 0;
   background: transparent !important;
   background-color: transparent !important;
-  color-scheme: light dark;
+  color-scheme: only light !important;
 }
 
 /* El iframe de Verbo nunca debe pintar caja negra detrás del SVG. */
