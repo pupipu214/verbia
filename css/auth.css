@@ -188,6 +188,7 @@ button { color: inherit; }
 .mascot-ring,
 .mascot-floor {
   position: absolute;
+  position: absolute;
   pointer-events: none;
 }
 
@@ -226,8 +227,14 @@ button { color: inherit; }
   animation: floor-breathe 4.2s ease-in-out infinite;
 }
 
-.mascot-frame {
-  position: relative;
+.mascot-glow,
+.mascot-ring,
+.mascot-floor {
+  display: none !important;
+}
+
+/* Iframe de Verbo dentro del escenario */
+.mascot-stage iframe {
   z-index: 2;
   width: 100%;
   height: 100%;
