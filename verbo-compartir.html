@@ -64,11 +64,9 @@
     }
 
     /* Elimina cualquier fondo blanco por defecto del navegador en el documento embebido */
-    * { background: none !important; background-color: transparent !important; }
     svg, .verbo-svg, .verbo-stage, main {
       background: none !important;
       background-color: transparent !important;
-      fill: none;
     }
     svg {
       background-color: transparent !important;
@@ -184,11 +182,6 @@
         <path d="M 100 215 Q 82 245 92 252 Q 102 240 108 220 Z" fill="#5B21B6"/>
         <path d="M 120 218 Q 118 250 128 254 Q 132 238 130 220 Z" fill="#6D28D9"/>
         <path d="M 140 215 Q 158 245 148 252 Q 138 240 132 220 Z" fill="#5B21B6"/>
-      </g>
-
-      <g fill="none" stroke="#F59E0B" stroke-width="5" stroke-linecap="round">
-        <path d="M 96 220 L 92 235 M 96 220 L 100 235 M 96 220 L 88 232"/>
-        <path d="M 144 220 L 140 235 M 144 220 L 148 235 M 144 220 L 152 232"/>
       </g>
 
       <g filter="url(#softShadow)">
@@ -327,28 +320,6 @@
 </body>
 </html>
 
-<!--
-========================================
-SNIPPET DE IFRAME PARA LA WEB PADRE
-========================================
 
-Copia este código en tu página principal para embeber Verbo:
 
-<iframe
-  src="verbo-compartir.html?embed"
-  allowtransparency="true"
-  style="
-    width: 340px;
-    height: 368px;
-    border: none;
-    background: transparent !important;
-    background-color: transparent !important;
-  "
-></iframe>
 
-NOTAS:
-- El parámetro ?embed activa el modo embebido (sin logo, transparencia total)
-- allowtransparency="true" garantiza soporte de transparencia en navegadores antiguos
-- Los estilos inline aseguran que no haya capas de fondo heredadas
-- La relación de aspecto del SVG es 12/13 (aprox 0.923), ajusta width/height proporcionalmente
--->

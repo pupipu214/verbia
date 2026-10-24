@@ -718,21 +718,6 @@ summary { -webkit-tap-highlight-color: transparent; }
   border-radius: 50%;
 }
 
-.character-luis .character-info { background: oklch(0.86 0.06 155); }
-.character-marcos .character-info { background: oklch(0.94 0.045 25); }
-.character-nova .character-info { background: oklch(0.96 0.03 240); }
-.character-leonardo .character-info { background: oklch(0.97 0.05 90); }
-.character-lucia .character-info { background: oklch(0.96 0.03 210); }
-.character-andres .character-info { background: oklch(0.95 0.06 90); }
-
-/* Títulos en modo claro: tono más oscuro del mismo color para legibilidad */
-.character-luis .character-info h3 { color: oklch(0.35 0.18 155); }
-.character-marcos .character-info h3 { color: oklch(0.42 0.20 25); }
-.character-nova .character-info h3 { color: oklch(0.45 0.12 240); }
-.character-leonardo .character-info h3 { color: oklch(0.55 0.18 85); }
-.character-lucia .character-info h3 { color: oklch(0.48 0.10 210); }
-.character-andres .character-info h3 { color: oklch(0.55 0.18 85); }
-
 .characters-gallery-cta { display: flex; justify-content: center; margin-top: 34px; }
 .characters-gallery-cta .btn { color: var(--paper); border-color: oklch(1 0 0 / .55); }
 .characters-gallery-cta .btn:hover { color: var(--ink); }
