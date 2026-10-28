@@ -1524,7 +1524,10 @@ summary { -webkit-tap-highlight-color: transparent; }
   font-size: 12px;
   font-weight: 600;
   line-height: 1.45;
-  color: oklch(0.2 0.035 240 / 0.72);
+  color: oklch(0.2 0.035 240 / 0.5);
+  border: 1px solid oklch(0.2 0.035 240 / 0.3);
+  padding: 8px 12px;
+  border-radius: 8px;
 }
 
 .wave-tags { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
@@ -1543,7 +1546,7 @@ summary { -webkit-tap-highlight-color: transparent; }
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  margin-top: 6px;
+  margin-top: 12px;
   padding: 10px 18px;
   border-radius: 999px;
   background: var(--ink);
@@ -1910,14 +1913,9 @@ summary { -webkit-tap-highlight-color: transparent; }
   color: #0f172a;
 }
 
-:root[data-theme="dark"] .wave-character#luis .wave-info p,
-:root[data-theme="dark"] .wave-character#nova .wave-info p,
-:root[data-theme="dark"] .wave-character#leonardo .wave-info p,
-:root[data-theme="dark"] .wave-character#marcos .wave-info p,
-:root[data-theme="dark"] .wave-character#lucia .wave-info p,
-:root[data-theme="dark"] .wave-character#andres .wave-info p,
-:root[data-theme="dark"] .wave-character#aula .wave-info p {
-  color: #1e293b;
+:root[data-theme="dark"] .wave-info p {
+  color: oklch(0.2 0.035 255 / 0.55);
+  border: 1px solid oklch(0.2 0.035 255 / 0.3);
 }
 
 /* --- Accesibilidad: respetar "reducir movimiento" --- */

@@ -211,7 +211,6 @@
 :root[data-theme="dark"] .preview-details p,
 :root[data-theme="dark"] .preview-hint p,
 :root[data-theme="dark"] .guide-progress li,
-:root[data-theme="dark"] .wave-info p,
 :root[data-theme="dark"] .practice-header .practice-nav a,
 :root[data-theme="dark"] .practice-exit,
 :root[data-theme="dark"] .practice-heading p,
@@ -227,6 +226,11 @@
 :root[data-theme="dark"] .meta-item span,
 :root[data-theme="dark"] .filters-label {
   color: #cbd5e1;
+}
+
+:root[data-theme="dark"] .wave-info p {
+  color: #e5e7eb;
+  border-color: rgb(226 232 240 / 0.3);
 }
 
 :root[data-theme="dark"] .analysis-dashboard h2,

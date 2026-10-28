@@ -605,7 +605,7 @@
 :root[data-theme="dark"] .scene-prompt,
 :root[data-theme="dark"] .scene-hint,
 :root[data-theme="dark"] .practice-feedback {
-  color: #b8c6d6;
+  color: oklch(0.72 0.025 260 / 0.75);
 }
 
 :root[data-theme="dark"] .character-picker-card,
