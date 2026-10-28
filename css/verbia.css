@@ -1840,27 +1840,27 @@ summary { -webkit-tap-highlight-color: transparent; }
 
 /* Personajes en modo oscuro: usan colores dinámicos de sus fotos */
 :root[data-theme="dark"] .character-luis .character-info {
-  background: oklch(0.42 0.22 155);
+  background: transparent;
   color: #0f172a;
 }
 :root[data-theme="dark"] .character-marcos .character-info {
-  background: oklch(0.62 0.20 25);
+  background: transparent;
   color: #0f172a;
 }
 :root[data-theme="dark"] .character-nova .character-info {
-  background: oklch(0.86 0.12 240);
+  background: transparent;
   color: #0f172a;
 }
 :root[data-theme="dark"] .character-leonardo .character-info {
-  background: oklch(0.82 0.18 85);
+  background: transparent;
   color: #0f172a;
 }
 :root[data-theme="dark"] .character-lucia .character-info {
-  background: oklch(0.88 0.10 210);
+  background: transparent;
   color: #0f172a;
 }
 :root[data-theme="dark"] .character-andres .character-info {
-  background: oklch(0.72 0.18 85);
+  background: transparent;
   color: #0f172a;
 }
 
@@ -1875,31 +1875,31 @@ summary { -webkit-tap-highlight-color: transparent; }
 
 /* Galería de personajes (personajes.html) en modo oscuro: usa colores dinámicos */
 :root[data-theme="dark"] .wave-character#luis .wave-info {
-  background: oklch(0.42 0.22 155);
+  background: transparent;
   color: #0f172a;
 }
 :root[data-theme="dark"] .wave-character#nova .wave-info {
-  background: oklch(0.86 0.12 240);
+  background: transparent;
   color: #0f172a;
 }
 :root[data-theme="dark"] .wave-character#leonardo .wave-info {
-  background: oklch(0.82 0.18 85);
+  background: transparent;
   color: #0f172a;
 }
 :root[data-theme="dark"] .wave-character#marcos .wave-info {
-  background: oklch(0.62 0.20 25);
+  background: transparent;
   color: #0f172a;
 }
 :root[data-theme="dark"] .wave-character#lucia .wave-info {
-  background: oklch(0.88 0.10 210);
+  background: transparent;
   color: #0f172a;
 }
 :root[data-theme="dark"] .wave-character#andres .wave-info {
-  background: oklch(0.72 0.18 85);
+  background: transparent;
   color: #0f172a;
 }
 :root[data-theme="dark"] .wave-character#aula .wave-info {
-  background: oklch(0.82 0.18 85);
+  background: transparent;
   color: #0f172a;
 }
 
